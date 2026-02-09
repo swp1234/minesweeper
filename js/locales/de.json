@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "Minesweeper - Klassisches Puzzlespiel",
+        "subtitle": "Finden Sie die versteckten Minen!"
+    },
+    "difficulty": {
+        "title": "Schwierigkeitsgrad wählen",
+        "beginner": "Anfänger",
+        "intermediate": "Mittelstufe",
+        "expert": "Experte"
+    },
+    "game": {
+        "time": "Zeit",
+        "flags": "Flaggen",
+        "newGame": "Neues Spiel"
+    },
+    "result": {
+        "won": "Sieg!",
+        "wonMessage": "Glückwunsch! Sie haben alle sicheren Zellen aufgedeckt!",
+        "lost": "Spielende",
+        "lostMessage": "Sie haben eine Mine betreten. Versuchen Sie es erneut!",
+        "time": "Zeit",
+        "difficulty": "Schwierigkeit",
+        "cells": "Aufgedeckte Zellen",
+        "bestTime": "Beste Zeit",
+        "playAgain": "Nochmal spielen",
+        "backMenu": "Zurück zum Menü"
+    }
+}

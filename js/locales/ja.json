@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "マインスイーパー - クラシックパズルゲーム",
+        "subtitle": "隠れた地雷を見つけましょう!"
+    },
+    "difficulty": {
+        "title": "難易度を選択",
+        "beginner": "初級",
+        "intermediate": "中級",
+        "expert": "上級"
+    },
+    "game": {
+        "time": "時間",
+        "flags": "旗",
+        "newGame": "新しいゲーム"
+    },
+    "result": {
+        "won": "勝利!",
+        "wonMessage": "おめでとうございます!すべての安全なセルを開きました!",
+        "lost": "ゲームオーバー",
+        "lostMessage": "地雷を踏んでしまいました。もう一度試してください!",
+        "time": "時間",
+        "difficulty": "難易度",
+        "cells": "開いたセル",
+        "bestTime": "ベストタイム",
+        "playAgain": "もう一度プレイ",
+        "backMenu": "メニューに戻る"
+    }
+}

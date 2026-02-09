@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "扫雷 - 经典益智游戏",
+        "subtitle": "找到隐藏的地雷!"
+    },
+    "difficulty": {
+        "title": "选择难度",
+        "beginner": "初级",
+        "intermediate": "中级",
+        "expert": "高级"
+    },
+    "game": {
+        "time": "时间",
+        "flags": "旗帜",
+        "newGame": "新游戏"
+    },
+    "result": {
+        "won": "胜利!",
+        "wonMessage": "恭喜!你已经打开所有安全格子!",
+        "lost": "游戏结束",
+        "lostMessage": "你踩到了地雷。再试一次!",
+        "time": "时间",
+        "difficulty": "难度",
+        "cells": "打开的格子",
+        "bestTime": "最佳时间",
+        "playAgain": "再玩一次",
+        "backMenu": "返回菜单"
+    }
+}

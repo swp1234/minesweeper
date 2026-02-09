@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "지뢰찾기 - 클래식 퍼즐 게임",
+        "subtitle": "숨겨진 지뢰를 찾아보세요!"
+    },
+    "difficulty": {
+        "title": "난이도를 선택하세요",
+        "beginner": "초급",
+        "intermediate": "중급",
+        "expert": "고급"
+    },
+    "game": {
+        "time": "시간",
+        "flags": "깃발",
+        "newGame": "새 게임"
+    },
+    "result": {
+        "won": "승리!",
+        "wonMessage": "축하합니다! 모든 안전한 셀을 열었습니다!",
+        "lost": "게임 오버",
+        "lostMessage": "지뢰를 밟으셨어요. 다시 시도해보세요!",
+        "time": "시간",
+        "difficulty": "난이도",
+        "cells": "열린 셀",
+        "bestTime": "최고 기록",
+        "playAgain": "다시 하기",
+        "backMenu": "메뉴로"
+    }
+}

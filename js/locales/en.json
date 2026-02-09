@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "Minesweeper - Classic Puzzle Game",
+        "subtitle": "Find the hidden mines!"
+    },
+    "difficulty": {
+        "title": "Select Difficulty",
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "expert": "Expert"
+    },
+    "game": {
+        "time": "Time",
+        "flags": "Flags",
+        "newGame": "New Game"
+    },
+    "result": {
+        "won": "Victory!",
+        "wonMessage": "Congratulations! You've revealed all safe cells!",
+        "lost": "Game Over",
+        "lostMessage": "You hit a mine. Try again!",
+        "time": "Time",
+        "difficulty": "Difficulty",
+        "cells": "Cells Cleared",
+        "bestTime": "Best Time",
+        "playAgain": "Play Again",
+        "backMenu": "Back to Menu"
+    }
+}

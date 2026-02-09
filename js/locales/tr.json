@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "Mayın Tarlası - Klasik Bulmaca Oyunu",
+        "subtitle": "Gizli mayınları bulun!"
+    },
+    "difficulty": {
+        "title": "Zorluk Seviyesini Seçin",
+        "beginner": "Başlangıç",
+        "intermediate": "Orta",
+        "expert": "Uzman"
+    },
+    "game": {
+        "time": "Zaman",
+        "flags": "Bayraklar",
+        "newGame": "Yeni Oyun"
+    },
+    "result": {
+        "won": "Zafer!",
+        "wonMessage": "Tebrikler! Tüm güvenli hücreleri açtınız!",
+        "lost": "Oyun Bitti",
+        "lostMessage": "Bir mayını attınız. Tekrar deneyin!",
+        "time": "Zaman",
+        "difficulty": "Zorluk",
+        "cells": "Açılan Hücreler",
+        "bestTime": "En İyi Zaman",
+        "playAgain": "Tekrar Oyna",
+        "backMenu": "Menüye Dön"
+    }
+}

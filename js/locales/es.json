@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "Buscaminas - Juego de Puzzle Clásico",
+        "subtitle": "¡Encuentra las minas ocultas!"
+    },
+    "difficulty": {
+        "title": "Selecciona la Dificultad",
+        "beginner": "Principiante",
+        "intermediate": "Intermedio",
+        "expert": "Experto"
+    },
+    "game": {
+        "time": "Tiempo",
+        "flags": "Banderas",
+        "newGame": "Nuevo Juego"
+    },
+    "result": {
+        "won": "¡Victoria!",
+        "wonMessage": "¡Felicidades! ¡Has revelado todas las celdas seguras!",
+        "lost": "Fin del Juego",
+        "lostMessage": "¡Pisaste una mina! ¡Intenta de nuevo!",
+        "time": "Tiempo",
+        "difficulty": "Dificultad",
+        "cells": "Celdas Reveladas",
+        "bestTime": "Mejor Tiempo",
+        "playAgain": "Jugar de Nuevo",
+        "backMenu": "Volver al Menú"
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "Campo Minado - Jogo de Puzzle Clássico",
+        "subtitle": "Encontre as minas ocultas!"
+    },
+    "difficulty": {
+        "title": "Selecione a Dificuldade",
+        "beginner": "Iniciante",
+        "intermediate": "Intermediário",
+        "expert": "Especialista"
+    },
+    "game": {
+        "time": "Tempo",
+        "flags": "Bandeiras",
+        "newGame": "Novo Jogo"
+    },
+    "result": {
+        "won": "Vitória!",
+        "wonMessage": "Parabéns! Você revelou todas as células seguras!",
+        "lost": "Fim do Jogo",
+        "lostMessage": "Você pisou em uma mina. Tente novamente!",
+        "time": "Tempo",
+        "difficulty": "Dificuldade",
+        "cells": "Células Reveladas",
+        "bestTime": "Melhor Tempo",
+        "playAgain": "Jogar Novamente",
+        "backMenu": "Voltar ao Menu"
+    }
+}

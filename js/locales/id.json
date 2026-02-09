@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "Penyapu Ranjau - Permainan Puzzle Klasik",
+        "subtitle": "Temukan ranjau yang tersembunyi!"
+    },
+    "difficulty": {
+        "title": "Pilih Tingkat Kesulitan",
+        "beginner": "Pemula",
+        "intermediate": "Menengah",
+        "expert": "Ahli"
+    },
+    "game": {
+        "time": "Waktu",
+        "flags": "Bendera",
+        "newGame": "Permainan Baru"
+    },
+    "result": {
+        "won": "Kemenangan!",
+        "wonMessage": "Selamat! Anda telah membuka semua sel yang aman!",
+        "lost": "Permainan Berakhir",
+        "lostMessage": "Anda mengenai ranjau. Coba lagi!",
+        "time": "Waktu",
+        "difficulty": "Tingkat Kesulitan",
+        "cells": "Sel Terbuka",
+        "bestTime": "Waktu Terbaik",
+        "playAgain": "Mainkan Lagi",
+        "backMenu": "Kembali ke Menu"
+    }
+}

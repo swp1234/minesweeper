@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f0f23">
+    <meta name="description" content="Minesweeper - A classic puzzle game. Find the hidden mines and uncover all safe cells. Challenge yourself with three difficulty levels!">
+
+    <!-- SEO & Structured Data -->
+    <meta name="keywords" content="minesweeper, puzzle game, classic game, brain game, logic game, mine sweeper">
+    <meta name="author" content="dopabrain.com">
+
+    <!-- Open Graph (Social Sharing) -->
+    <meta property="og:title" content="Minesweeper - Classic Puzzle Game">
+    <meta property="og:description" content="Find the hidden mines! Choose your difficulty and test your logic skills. Play the timeless puzzle classic!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dopabrain.com/games/minesweeper/">
+    <meta property="og:image" content="https://dopabrain.com/games/minesweeper/icon-512.svg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Minesweeper - Classic Puzzle Game">
+    <meta name="twitter:description" content="Find the hidden mines and test your logic skills!">
+    <meta name="twitter:image" content="https://dopabrain.com/games/minesweeper/icon-512.svg">
+
+    <!-- hreflang for multilingual SEO -->
+    <link rel="alternate" hreflang="ko" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="en" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="zh" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="hi" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="ru" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="ja" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="es" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="pt" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="id" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="tr" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="de" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="fr" href="https://dopabrain.com/games/minesweeper/">
+    <link rel="alternate" hreflang="x-default" href="https://dopabrain.com/games/minesweeper/">
+
+    <!-- Schema.org VideoGame -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "VideoGame",
+        "name": "Minesweeper",
+        "description": "A classic puzzle game where you find hidden mines and uncover safe cells",
+        "url": "https://dopabrain.com/games/minesweeper/",
+        "image": "https://dopabrain.com/games/minesweeper/icon-512.svg",
+        "author": {
+            "@type": "Organization",
+            "name": "dopabrain.com"
+        },
+        "genre": "Puzzle",
+        "gamePlatform": "Web",
+        "applicationCategory": "Game"
+    }
+    </script>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icon-192.svg">
+    <link rel="apple-touch-icon" href="icon-192.svg">
+
+    <!-- Preconnect to external services -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-J8GSWM40TV');
+    </script>
+
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882"
+        crossorigin="anonymous"></script>
+
+    <title data-i18n="app.title">Minesweeper - Classic Puzzle Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Sound Toggle -->
+    <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound" title="Toggle Sound">🔊</button>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language menu">🌐</button>
+        <div id="lang-menu" class="lang-menu hidden">
+            <button class="lang-option" data-lang="ko">🇰🇷 한국어</button>
+            <button class="lang-option" data-lang="en">🇺🇸 English</button>
+            <button class="lang-option" data-lang="ja">🇯🇵 日本語</button>
+            <button class="lang-option" data-lang="zh">🇨🇳 中文</button>
+            <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+            <button class="lang-option" data-lang="pt">🇧🇷 Português</button>
+            <button class="lang-option" data-lang="id">🇮🇩 Bahasa Indonesia</button>
+            <button class="lang-option" data-lang="tr">🇹🇷 Türkçe</button>
+            <button class="lang-option" data-lang="de">🇩🇪 Deutsch</button>
+            <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+            <button class="lang-option" data-lang="hi">🇮🇳 हिन्दी</button>
+            <button class="lang-option" data-lang="ru">🇷🇺 Русский</button>
+        </div>
+    </div>
+
+    <!-- Top Banner Ad -->
+    <div class="ad-container ad-top">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3600813755953882"
+             data-ad-slot="1234567890"
+             data-ad-format="horizontal"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 data-i18n="app.title">Minesweeper</h1>
+            <p class="subtitle" data-i18n="app.subtitle">Find the hidden mines!</p>
+        </header>
+
+        <!-- Difficulty Selection -->
+        <div id="difficulty-menu" class="difficulty-menu">
+            <h2 data-i18n="difficulty.title">Select Difficulty</h2>
+            <div class="difficulty-buttons">
+                <button class="difficulty-btn" data-difficulty="beginner" aria-label="Beginner: 9x9 grid, 10 mines">
+                    <div class="difficulty-name" data-i18n="difficulty.beginner">Beginner</div>
+                    <div class="difficulty-info">9x9 - 10 💣</div>
+                </button>
+                <button class="difficulty-btn" data-difficulty="intermediate" aria-label="Intermediate: 16x16 grid, 40 mines">
+                    <div class="difficulty-name" data-i18n="difficulty.intermediate">Intermediate</div>
+                    <div class="difficulty-info">16x16 - 40 💣</div>
+                </button>
+                <button class="difficulty-btn" data-difficulty="expert" aria-label="Expert: 30x16 grid, 99 mines">
+                    <div class="difficulty-name" data-i18n="difficulty.expert">Expert</div>
+                    <div class="difficulty-info">30x16 - 99 💣</div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Interface -->
+        <div id="game-interface" class="game-interface hidden">
+            <div class="game-header">
+                <div class="stat">
+                    <span class="stat-label" data-i18n="game.time">Time</span>
+                    <span id="timer" class="stat-value">0</span>
+                </div>
+                <button id="new-game-btn" class="new-game-btn" aria-label="Start new game" data-i18n="game.newGame">New Game</button>
+                <div class="stat">
+                    <span class="stat-label" data-i18n="game.flags">Flags</span>
+                    <span id="flag-counter" class="stat-value">0</span>
+                </div>
+            </div>
+
+            <div class="game-board-wrapper">
+                <div id="game-board" class="game-board"></div>
+            </div>
+
+            <!-- Game Over Modal -->
+            <div id="game-over-modal" class="modal hidden">
+                <div class="modal-content">
+                    <h2 id="game-over-title" data-i18n="result.lost">Game Over!</h2>
+                    <p id="game-over-message"></p>
+                    <div class="stats-display">
+                        <div class="stat-row">
+                            <span data-i18n="result.time">Time</span>
+                            <span id="final-time">0</span>s
+                        </div>
+                        <div class="stat-row">
+                            <span data-i18n="result.difficulty">Difficulty</span>
+                            <span id="final-difficulty">-</span>
+                        </div>
+                        <div class="stat-row">
+                            <span data-i18n="result.cells">Cells Cleared</span>
+                            <span id="final-cells">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Leaderboard Section -->
+                    <div id="leaderboard-section" class="leaderboard-section">
+                        <h3 data-i18n="result.bestTime">Best Time</h3>
+                        <div class="leaderboard">
+                            <div class="leaderboard-item">
+                                <span class="difficulty-badge" data-i18n="difficulty.beginner">Beginner</span>
+                                <span id="best-beginner" class="best-time">--:--</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span class="difficulty-badge" data-i18n="difficulty.intermediate">Intermediate</span>
+                                <span id="best-intermediate" class="best-time">--:--</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span class="difficulty-badge" data-i18n="difficulty.expert">Expert</span>
+                                <span id="best-expert" class="best-time">--:--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-buttons">
+                        <button id="play-again-btn" class="btn-primary" data-i18n="result.playAgain">Play Again</button>
+                        <button id="back-menu-btn" class="btn-secondary" data-i18n="result.backMenu">Back to Menu</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confetti Container -->
+            <div id="confetti-container" class="confetti-container"></div>
+        </div>
+    </div>
+
+    <!-- Bottom Banner Ad -->
+    <div class="ad-container ad-bottom">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3600813755953882"
+             data-ad-slot="1234567891"
+             data-ad-format="horizontal"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

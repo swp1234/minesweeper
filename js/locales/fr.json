@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "Démineur - Jeu de Puzzle Classique",
+        "subtitle": "Trouvez les mines cachées!"
+    },
+    "difficulty": {
+        "title": "Sélectionnez la Difficulté",
+        "beginner": "Débutant",
+        "intermediate": "Intermédiaire",
+        "expert": "Expert"
+    },
+    "game": {
+        "time": "Temps",
+        "flags": "Drapeaux",
+        "newGame": "Nouveau Jeu"
+    },
+    "result": {
+        "won": "Victoire!",
+        "wonMessage": "Félicitations! Vous avez découvert toutes les cellules sûres!",
+        "lost": "Fin de Jeu",
+        "lostMessage": "Vous avez marché sur une mine. Réessayez!",
+        "time": "Temps",
+        "difficulty": "Difficulté",
+        "cells": "Cellules Découvertes",
+        "bestTime": "Meilleur Temps",
+        "playAgain": "Rejouer",
+        "backMenu": "Retour au Menu"
+    }
+}

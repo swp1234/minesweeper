@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .bg { fill: #0f0f23; }
+      .text { fill: #3498db; font-size: 200px; font-weight: bold; text-anchor: middle; dominant-baseline: middle; }
+    </style>
+    <radialGradient id="glow" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#0f0f23;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="512" height="512"/>
+
+  <!-- Glow effect -->
+  <circle cx="256" cy="256" r="256" fill="url(#glow)"/>
+
+  <!-- Grid pattern - larger version -->
+  <g stroke="#404059" stroke-width="2" opacity="0.6">
+    <!-- Rows -->
+    <line x1="50" y1="100" x2="450" y2="100"/>
+    <line x1="50" y1="200" x2="450" y2="200"/>
+    <line x1="50" y1="300" x2="450" y2="300"/>
+    <line x1="50" y1="400" x2="450" y2="400"/>
+    <!-- Columns -->
+    <line x1="100" y1="50" x2="100" y2="450"/>
+    <line x1="200" y1="50" x2="200" y2="450"/>
+    <line x1="300" y1="50" x2="300" y2="450"/>
+    <line x1="400" y1="50" x2="400" y2="450"/>
+  </g>
+
+  <!-- Cells -->
+  <g stroke="#404059" stroke-width="2" fill="#1a1a2e">
+    <!-- Row 1 -->
+    <rect x="50" y="50" width="80" height="80" rx="4"/>
+    <rect x="150" y="50" width="80" height="80" rx="4"/>
+    <rect x="250" y="50" width="80" height="80" rx="4"/>
+    <rect x="350" y="50" width="80" height="80" rx="4"/>
+
+    <!-- Row 2 -->
+    <rect x="50" y="150" width="80" height="80" rx="4"/>
+    <rect x="150" y="150" width="80" height="80" rx="4" fill="#27ae60"/>
+    <rect x="250" y="150" width="80" height="80" rx="4"/>
+    <rect x="350" y="150" width="80" height="80" rx="4"/>
+
+    <!-- Row 3 -->
+    <rect x="50" y="250" width="80" height="80" rx="4"/>
+    <rect x="150" y="250" width="80" height="80" rx="4"/>
+    <rect x="250" y="250" width="80" height="80" rx="4" fill="#e74c3c"/>
+    <rect x="350" y="250" width="80" height="80" rx="4"/>
+
+    <!-- Row 4 -->
+    <rect x="50" y="350" width="80" height="80" rx="4"/>
+    <rect x="150" y="350" width="80" height="80" rx="4"/>
+    <rect x="250" y="350" width="80" height="80" rx="4"/>
+    <rect x="350" y="350" width="80" height="80" rx="4"/>
+  </g>
+
+  <!-- Numbers and indicators -->
+  <text x="140" y="140" class="text" opacity="0.4">1</text>
+  <text x="240" y="100" class="text" opacity="0.4">2</text>
+  <text x="140" y="240" class="text" opacity="0.5">3</text>
+  <text x="140" y="340" class="text" opacity="0.4">2</text>
+
+  <!-- Mine indicator -->
+  <g transform="translate(310, 310)" opacity="0.9">
+    <text x="0" y="0" class="text" font-size="120">💣</text>
+  </g>
+
+  <!-- Flag indicators -->
+  <g transform="translate(410, 140)" opacity="0.7">
+    <path d="M 0 0 L 20 12 L 0 24 Z" fill="#3498db"/>
+    <line x1="0" y1="0" x2="0" y2="30" stroke="#3498db" stroke-width="3"/>
+  </g>
+
+  <!-- Title text at bottom -->
+  <text x="256" y="480" font-size="32" font-weight="600" fill="#3498db" text-anchor="middle">MINESWEEPER</text>
+</svg>
