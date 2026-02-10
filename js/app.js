@@ -526,6 +526,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     game = new Minesweeper();
 
+    // Hide app loader
+    const loader = document.getElementById('app-loader');
+    if (loader) {
+        loader.classList.add('hidden');
+        setTimeout(() => loader.remove(), 300);
+    }
+
     // Init audio on user interaction
     document.addEventListener('click', () => {
         game.initAudio();
