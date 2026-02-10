@@ -114,40 +114,36 @@ const i18n = new I18n();
 
 // Initialize i18n when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
-    await i18n.loadTranslations(i18n.currentLang);
-    i18n.updateUI();
+    try {
+        await i18n.loadTranslations(i18n.currentLang);
+        i18n.updateUI();
 
-    // Set up language switcher
-    const langOptions = document.querySelectorAll('.lang-option');
-    langOptions.forEach(option => {
-        option.addEventListener('click', async (e) => {
-            const lang = e.target.getAttribute('data-lang');
-            await i18n.setLanguage(lang);
-
-            // Update active state
-            langOptions.forEach(opt => opt.classList.remove('active'));
-            e.target.classList.add('active');
-
-            // Close menu
-            document.getElementById('lang-menu').classList.add('hidden');
+        const langOptions = document.querySelectorAll('.lang-option');
+        langOptions.forEach(option => {
+            option.addEventListener('click', async (e) => {
+                const lang = e.target.getAttribute('data-lang');
+                await i18n.setLanguage(lang);
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                e.target.classList.add('active');
+                document.getElementById('lang-menu').classList.add('hidden');
+            });
         });
-    });
 
-    // Set initial active language
-    document.querySelector(`.lang-option[data-lang="${i18n.currentLang}"]`)?.classList.add('active');
+        document.querySelector(`.lang-option[data-lang="${i18n.currentLang}"]`)?.classList.add('active');
 
-    // Toggle language menu
-    const langToggle = document.getElementById('lang-toggle');
-    const langMenu = document.getElementById('lang-menu');
+        const langToggle = document.getElementById('lang-toggle');
+        const langMenu = document.getElementById('lang-menu');
 
-    langToggle.addEventListener('click', () => {
-        langMenu.classList.toggle('hidden');
-    });
+        langToggle.addEventListener('click', () => {
+            langMenu.classList.toggle('hidden');
+        });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.language-selector')) {
-            langMenu.classList.add('hidden');
-        }
-    });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.language-selector')) {
+                langMenu.classList.add('hidden');
+            }
+        });
+    } catch (e) {
+        console.warn('i18n init failed:', e);
+    }
 });

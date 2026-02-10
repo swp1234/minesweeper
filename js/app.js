@@ -515,13 +515,15 @@ class Minesweeper {
 let game;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // Wait for i18n to be ready
-    if (typeof i18n !== 'undefined') {
-        await i18n.loadTranslations(i18n.currentLang);
-        i18n.updateUI();
+    try {
+        if (typeof i18n !== 'undefined') {
+            await i18n.loadTranslations(i18n.currentLang);
+            i18n.updateUI();
+        }
+    } catch (e) {
+        console.warn('i18n init failed:', e);
     }
 
-    // Initialize game
     game = new Minesweeper();
 
     // Init audio on user interaction
