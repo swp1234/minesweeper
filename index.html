@@ -165,8 +165,15 @@
                 </div>
             </div>
 
+            <div class="keyboard-hints" aria-label="Keyboard shortcuts">
+                <span class="kbd-hint"><kbd>Arrow</kbd> Navigate</span>
+                <span class="kbd-hint"><kbd>Space</kbd>/<kbd>Enter</kbd> Reveal</span>
+                <span class="kbd-hint"><kbd>F</kbd> Flag</span>
+                <span class="kbd-hint"><kbd>R</kbd> Restart</span>
+            </div>
+
             <div class="game-board-wrapper">
-                <div id="game-board" class="game-board"></div>
+                <div id="game-board" class="game-board" role="grid" aria-keyshortcuts="ArrowUp ArrowDown ArrowLeft ArrowRight"></div>
             </div>
 
             <!-- Game Over Modal -->

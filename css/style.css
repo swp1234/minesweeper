@@ -948,3 +948,37 @@ button:focus-visible {
 [data-theme="light"] .theme-toggle:hover {
     background: rgba(52, 152, 219, 0.15);
 }
+
+/* Keyboard focus indicator for cells */
+.cell:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+    z-index: 1;
+}
+
+/* Keyboard shortcut hints */
+.keyboard-hints {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 14px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+@media (min-width: 768px) {
+    .keyboard-hints { display: flex; }
+}
+.kbd-hint { white-space: nowrap; }
+.kbd-hint kbd {
+    display: inline-block;
+    padding: 1px 5px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--glass);
+    font-family: inherit;
+    font-size: 10px;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}

@@ -63,6 +63,10 @@ class Minesweeper {
     }
 
     init() {
+        // Keyboard focus tracking
+        this.focusRow = 0;
+        this.focusCol = 0;
+
         // Difficulty selection
         document.querySelectorAll('.difficulty-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -91,6 +95,69 @@ class Minesweeper {
         });
 
         this.updateSoundButton();
+
+        // Global keyboard navigation
+        document.addEventListener('keydown', (e) => this.handleGlobalKeyDown(e));
+    }
+
+    handleGlobalKeyDown(e) {
+        // R to restart (when game is active)
+        if (e.key === 'r' || e.key === 'R') {
+            if (this.currentDifficulty && !this.gameInterface.classList.contains('hidden')) {
+                e.preventDefault();
+                this.startNewGame(this.currentDifficulty);
+                return;
+            }
+        }
+
+        // Arrow key navigation within the board
+        if (!this.currentDifficulty || this.gameInterface.classList.contains('hidden')) return;
+
+        const arrowKeys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+        if (arrowKeys.includes(e.key)) {
+            e.preventDefault();
+            this.navigateCell(e.key);
+            return;
+        }
+
+        // Space/Enter to reveal focused cell
+        if (e.key === ' ' || e.key === 'Enter') {
+            const active = document.activeElement;
+            // Only handle if focused on a cell (not on buttons)
+            if (active && active.classList.contains('cell')) return; // per-cell handler will catch it
+            // If no cell is focused, focus the tracked cell
+            e.preventDefault();
+            this.clickCell(this.focusRow, this.focusCol);
+            return;
+        }
+
+        // F to flag focused cell
+        if (e.key === 'f' || e.key === 'F') {
+            const active = document.activeElement;
+            if (active && active.classList.contains('cell')) return; // per-cell handler will catch it
+            e.preventDefault();
+            this.toggleFlag(this.focusRow, this.focusCol);
+            return;
+        }
+    }
+
+    navigateCell(key) {
+        let newRow = this.focusRow;
+        let newCol = this.focusCol;
+
+        switch (key) {
+            case 'ArrowUp':    newRow = Math.max(0, newRow - 1); break;
+            case 'ArrowDown':  newRow = Math.min(this.rows - 1, newRow + 1); break;
+            case 'ArrowLeft':  newCol = Math.max(0, newCol - 1); break;
+            case 'ArrowRight': newCol = Math.min(this.cols - 1, newCol + 1); break;
+        }
+
+        this.focusRow = newRow;
+        this.focusCol = newCol;
+
+        // Move DOM focus to the cell
+        const cell = this.gameBoard.querySelector(`[data-row="${newRow}"][data-col="${newCol}"]`);
+        if (cell) cell.focus();
     }
 
     updateSoundButton() {
@@ -129,6 +196,10 @@ class Minesweeper {
             }
             this.board.push(row);
         }
+
+        // Reset keyboard focus
+        this.focusRow = 0;
+        this.focusCol = 0;
 
         // Update UI
         this.updateFlagCounter();
