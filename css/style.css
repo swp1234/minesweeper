@@ -1,3 +1,20 @@
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary, #3498db);
+    color: #fff;
+    padding: 8px 16px;
+    z-index: 10000;
+    transition: top 0.2s;
+    font-size: 14px;
+    border-radius: 0 0 4px 0;
+}
+.skip-link:focus {
+    top: 0;
+}
+
 :root {
     --primary: #3498db;
     --primary-dark: #2980b9;
@@ -981,4 +998,13 @@ button:focus-visible {
     font-size: 10px;
     line-height: 1.4;
     color: var(--text-secondary);
+}
+
+/* Accessibility: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
