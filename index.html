@@ -266,6 +266,16 @@
         document.getElementById('shareTwitterBtn')?.addEventListener('click',function(){var t=document.title+' '+window.location.href;window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(t),'_blank');if(typeof gtag!=='undefined')gtag('event','share',{method:'twitter'})});
         document.getElementById('shareUrlBtn')?.addEventListener('click',function(){var b=this;navigator.clipboard.writeText(window.location.href).then(function(){b.textContent='✅ Copied!';setTimeout(function(){b.innerHTML='📋 Copy URL'},2000)});if(typeof gtag!=='undefined')gtag('event','share',{method:'url_copy'})});
     </script>
+    <!-- Related Articles & Portal Link -->
+    <nav style="max-width:480px;margin:24px auto 0;padding:0 16px" aria-label="Related articles">
+        <p style="font-size:13px;font-weight:600;margin-bottom:8px;opacity:0.6;text-align:center">📖 Related Articles</p>
+        <div style="display:flex;flex-direction:column;gap:6px">
+            <a href="/portal/blog/en/minesweeper-strategy-guide.html" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">Minesweeper Strategy: Tips to Win Every Game</a>
+            <a href="/portal/blog/en/free-games.html" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">Best Free Browser Games 2026 - No Download</a>
+            <a href="/portal/blog/ko/minesweeper-strategy-guide.html" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">지뢰찾기 전략 가이드 - 승리하는 법</a>
+        </div>
+        <p style="text-align:center;margin-top:16px"><a href="https://dopabrain.com/portal/" style="opacity:0.5;font-size:13px;text-decoration:none;color:inherit">← DopaBrain Home</a></p>
+    </nav>
     <script src="/portal/js/cross-promo.js" defer></script>
 </body>
 </html>
