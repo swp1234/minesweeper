@@ -25,5 +25,19 @@
         "bestTime": "En İyi Zaman",
         "playAgain": "Tekrar Oyna",
         "backMenu": "Menüye Dön"
+    },
+    "kbd": {
+        "navigate": "Gezin",
+        "reveal": "Aç",
+        "flag": "Bayrak",
+        "restart": "Yeniden başlat"
+    },
+    "share": {
+        "twitter": "Twitter",
+        "copyUrl": "URL'yi kopyala"
+    },
+    "nav": {
+        "relatedArticles": "📖 İlgili makaleler",
+        "backHome": "← DopaBrain Ana Sayfa"
     }
 }

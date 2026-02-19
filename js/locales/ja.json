@@ -25,5 +25,19 @@
         "bestTime": "ベストタイム",
         "playAgain": "もう一度プレイ",
         "backMenu": "メニューに戻る"
+    },
+    "kbd": {
+        "navigate": "移動",
+        "reveal": "開く",
+        "flag": "フラグ",
+        "restart": "再起動"
+    },
+    "share": {
+        "twitter": "Twitter",
+        "copyUrl": "URLをコピー"
+    },
+    "nav": {
+        "relatedArticles": "📖 関連記事",
+        "backHome": "← DopaBrain ホーム"
     }
 }

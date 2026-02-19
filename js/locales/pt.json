@@ -25,5 +25,19 @@
         "bestTime": "Melhor Tempo",
         "playAgain": "Jogar Novamente",
         "backMenu": "Voltar ao Menu"
+    },
+    "kbd": {
+        "navigate": "Navegar",
+        "reveal": "Revelar",
+        "flag": "Bandeira",
+        "restart": "Reiniciar"
+    },
+    "share": {
+        "twitter": "Twitter",
+        "copyUrl": "Copiar URL"
+    },
+    "nav": {
+        "relatedArticles": "📖 Artigos relacionados",
+        "backHome": "← Início DopaBrain"
     }
 }

@@ -25,5 +25,19 @@
         "bestTime": "最佳时间",
         "playAgain": "再玩一次",
         "backMenu": "返回菜单"
+    },
+    "kbd": {
+        "navigate": "移动",
+        "reveal": "揭示",
+        "flag": "标记",
+        "restart": "重启"
+    },
+    "share": {
+        "twitter": "Twitter",
+        "copyUrl": "复制链接"
+    },
+    "nav": {
+        "relatedArticles": "📖 相关文章",
+        "backHome": "← DopaBrain 首页"
     }
 }

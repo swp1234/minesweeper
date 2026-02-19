@@ -25,5 +25,19 @@
         "bestTime": "Waktu Terbaik",
         "playAgain": "Mainkan Lagi",
         "backMenu": "Kembali ke Menu"
+    },
+    "kbd": {
+        "navigate": "Navigasi",
+        "reveal": "Buka",
+        "flag": "Bendera",
+        "restart": "Mulai ulang"
+    },
+    "share": {
+        "twitter": "Twitter",
+        "copyUrl": "Salin URL"
+    },
+    "nav": {
+        "relatedArticles": "📖 Artikel terkait",
+        "backHome": "← Beranda DopaBrain"
     }
 }

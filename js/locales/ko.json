@@ -25,5 +25,19 @@
         "bestTime": "최고 기록",
         "playAgain": "다시 하기",
         "backMenu": "메뉴로"
+    },
+    "kbd": {
+        "navigate": "이동",
+        "reveal": "열기",
+        "flag": "깃발",
+        "restart": "재시작"
+    },
+    "share": {
+        "twitter": "Twitter",
+        "copyUrl": "URL 복사"
+    },
+    "nav": {
+        "relatedArticles": "📖 관련 글",
+        "backHome": "← DopaBrain 홈"
     }
 }
