@@ -33,6 +33,7 @@ class Minesweeper {
         this.timerInterval = null;
         this.mineCount = 0;
         this.revealedCount = 0;
+        this.revealStreak = 0;
 
         // Audio context
         this.audioContext = null;
@@ -178,6 +179,7 @@ class Minesweeper {
         this.gameOver = false;
         this.firstClick = true;
         this.revealedCount = 0;
+        this.revealStreak = 0;
         this.startTime = null;
         this.clearTimer();
 
@@ -303,6 +305,8 @@ class Minesweeper {
             return;
         }
 
+        this.revealStreak = 0;
+
         // First click - place mines
         if (this.firstClick) {
             this.startTime = Date.now();
@@ -338,6 +342,7 @@ class Minesweeper {
             cell.classList.add('opened', 'mine', 'revealed');
             cell.textContent = '💣';
             this.playSound('mine');
+            this.shakeBoard(8);
             this.endGame(false);
             return;
         }
@@ -363,6 +368,12 @@ class Minesweeper {
         } else {
             cell.classList.add(`num-${mineValue}`);
             cell.textContent = mineValue;
+        }
+
+        this.revealStreak++;
+        if (this.revealStreak > 0 && this.revealStreak % 10 === 0) {
+            const rect = cell.getBoundingClientRect();
+            this.showFloatingText(`${this.revealStreak} CLEAR!`, rect.left + 20, rect.top, '#3498db');
         }
 
         this.playSound('click');
@@ -524,6 +535,23 @@ class Minesweeper {
         }, 3500);
     }
 
+    shakeBoard(intensity = 6) {
+        this.gameBoard.style.animation = `ms-shake ${intensity > 4 ? 0.5 : 0.3}s ease`;
+        setTimeout(() => { this.gameBoard.style.animation = ''; }, 500);
+    }
+
+    showFloatingText(text, x, y, color = '#2ecc71') {
+        const el = document.createElement('div');
+        el.textContent = text;
+        el.style.cssText = `position:fixed;left:${x}px;top:${y}px;font-size:20px;font-weight:bold;color:${color};z-index:9999;pointer-events:none;text-shadow:0 0 8px ${color}40;opacity:1;transition:all 0.8s ease-out;`;
+        document.body.appendChild(el);
+        requestAnimationFrame(() => {
+            el.style.transform = 'translateY(-40px)';
+            el.style.opacity = '0';
+        });
+        setTimeout(() => el.remove(), 900);
+    }
+
     backToMenu() {
         this.clearTimer();
         this.gameInterface.classList.add('hidden');
@@ -596,6 +624,9 @@ class Minesweeper {
         }
     }
 }
+
+// Shake animation CSS
+(function(){const s=document.createElement('style');s.textContent='@keyframes ms-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}';document.head.appendChild(s);})();
 
 // Initialize game
 let game;
