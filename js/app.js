@@ -342,6 +342,7 @@ class Minesweeper {
             cell.classList.add('opened', 'mine', 'revealed');
             cell.textContent = '💣';
             this.playSound('mine');
+            if (typeof Haptic !== 'undefined') Haptic.heavy();
             this.shakeBoard(8);
             this.endGame(false);
             return;
@@ -377,6 +378,7 @@ class Minesweeper {
         }
 
         this.playSound('click');
+        if (typeof Haptic !== 'undefined') Haptic.light();
     }
 
     toggleFlag(row, col) {
@@ -423,6 +425,7 @@ class Minesweeper {
 
         if (won) {
             this.playSound('win');
+            if (typeof Haptic !== 'undefined') Haptic.success();
             this.createConfetti();
             this.saveTime(this.currentDifficulty, elapsedTime);
             // Track wins for daily streak
