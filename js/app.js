@@ -425,6 +425,10 @@ class Minesweeper {
             this.playSound('win');
             this.createConfetti();
             this.saveTime(this.currentDifficulty, elapsedTime);
+            // Track wins for daily streak
+            const wins = (parseInt(localStorage.getItem('minesweeper_wins')) || 0) + 1;
+            localStorage.setItem('minesweeper_wins', wins);
+            if (typeof DailyStreak !== 'undefined') DailyStreak.report(wins);
             this.showGameOver(true, elapsedTime);
         } else {
             this.playSound('explode');
@@ -642,6 +646,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     game = new Minesweeper();
+
+    if (typeof DailyStreak !== 'undefined') DailyStreak.init({ gameId: 'minesweeper', bestScoreKey: 'minesweeper_wins', minTarget: 1 });
 
     // Hide app loader
     const loader = document.getElementById('app-loader');
