@@ -166,6 +166,7 @@ class Minesweeper {
     }
 
     startNewGame(difficulty) {
+        this.clearSavedState();
         this.currentDifficulty = difficulty;
         const config = this.difficulties[difficulty];
         this.rows = config.rows;
@@ -320,6 +321,9 @@ class Minesweeper {
 
         // Check game state
         this.checkGameState();
+
+        // Save after each reveal (unless game ended)
+        if (!this.gameOver) this.saveGameState();
     }
 
     revealCell(row, col) {
@@ -400,6 +404,9 @@ class Minesweeper {
 
         this.updateFlagCounter();
         this.playSound('flag');
+
+        // Save after each flag toggle
+        if (!this.firstClick) this.saveGameState();
     }
 
     updateFlagCounter() {
@@ -421,6 +428,7 @@ class Minesweeper {
     endGame(won) {
         this.gameOver = true;
         this.clearTimer();
+        this.clearSavedState();
         const elapsedTime = Math.floor((Date.now() - this.startTime) / 1000);
 
         if (won) {
@@ -561,10 +569,117 @@ class Minesweeper {
 
     backToMenu() {
         this.clearTimer();
+        this.clearSavedState();
         this.gameInterface.classList.add('hidden');
         this.difficultyMenu.classList.remove('hidden');
         this.gameOverModal.classList.add('hidden');
         document.querySelector('.ad-top').style.display = '';
+    }
+
+    saveGameState() {
+        if (this.gameOver || this.firstClick) return;
+        const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
+        const state = {
+            board: this.board,
+            revealed: this.revealed,
+            flagged: this.flagged,
+            difficulty: this.currentDifficulty,
+            timer: elapsed,
+            gameStarted: true
+        };
+        try {
+            localStorage.setItem('minesweeper_gameState', JSON.stringify(state));
+        } catch (e) {
+            console.warn('Failed to save game state:', e);
+        }
+    }
+
+    loadGameState() {
+        try {
+            const raw = localStorage.getItem('minesweeper_gameState');
+            if (!raw) return false;
+            const state = JSON.parse(raw);
+            if (!state || !state.gameStarted || !state.difficulty) return false;
+
+            const config = this.difficulties[state.difficulty];
+            if (!config) return false;
+
+            // Restore game config
+            this.currentDifficulty = state.difficulty;
+            this.rows = config.rows;
+            this.cols = config.cols;
+            this.mineCount = config.mines;
+
+            // Restore state arrays
+            this.board = state.board;
+            this.revealed = state.revealed;
+            this.flagged = state.flagged;
+            this.gameOver = false;
+            this.firstClick = false;
+            this.revealedCount = 0;
+            this.revealStreak = 0;
+
+            // Count revealed cells
+            for (let i = 0; i < this.rows; i++) {
+                for (let j = 0; j < this.cols; j++) {
+                    if (this.revealed[i][j]) this.revealedCount++;
+                }
+            }
+
+            // Restore timer — set startTime so elapsed reads correctly
+            const savedElapsed = state.timer || 0;
+            this.startTime = Date.now() - (savedElapsed * 1000);
+            this.startTimer();
+
+            // Build grid
+            this.gameBoard.style.gridTemplateColumns = `repeat(${this.cols}, 44px)`;
+            this.gameBoard.style.gridTemplateRows = `repeat(${this.rows}, 44px)`;
+            this.gameBoard.innerHTML = '';
+
+            for (let i = 0; i < this.rows; i++) {
+                for (let j = 0; j < this.cols; j++) {
+                    const cell = this.createCell(i, j);
+
+                    if (this.revealed[i][j]) {
+                        cell.classList.add('opened');
+                        const val = this.board[i][j];
+                        if (val === 0) {
+                            cell.classList.add('empty');
+                            cell.textContent = '';
+                        } else {
+                            cell.classList.add(`num-${val}`);
+                            cell.textContent = val;
+                        }
+                    } else if (this.flagged[i][j]) {
+                        cell.classList.add('flagged');
+                        cell.textContent = '🚩';
+                    }
+
+                    this.gameBoard.appendChild(cell);
+                }
+            }
+
+            // Reset keyboard focus
+            this.focusRow = 0;
+            this.focusCol = 0;
+
+            // Update UI
+            this.updateFlagCounter();
+            this.gameOverModal.classList.add('hidden');
+            this.difficultyMenu.classList.add('hidden');
+            this.gameInterface.classList.remove('hidden');
+            document.querySelector('.ad-top').style.display = 'none';
+
+            return true;
+        } catch (e) {
+            console.warn('Failed to load game state:', e);
+            this.clearSavedState();
+            return false;
+        }
+    }
+
+    clearSavedState() {
+        localStorage.removeItem('minesweeper_gameState');
     }
 
     playSound(type) {
@@ -649,6 +764,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     game = new Minesweeper();
+
+    // Restore saved game if exists
+    game.loadGameState();
 
     if (typeof DailyStreak !== 'undefined') DailyStreak.init({ gameId: 'minesweeper', bestScoreKey: 'minesweeper_wins', minTarget: 1 });
 
