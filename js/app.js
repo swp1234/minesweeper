@@ -481,10 +481,16 @@ class Minesweeper {
         // Update leaderboard
         this.updateLeaderboard();
 
-        this.gameOverModal.classList.remove('hidden');
-
-        // Show ad
-        document.querySelector('.ad-top').style.display = '';
+        // Show game over modal (with interstitial ad)
+        if (typeof GameAds !== 'undefined') {
+            GameAds.showInterstitial({ onComplete: () => {
+                this.gameOverModal.classList.remove('hidden');
+                document.querySelector('.ad-top').style.display = '';
+            } });
+        } else {
+            this.gameOverModal.classList.remove('hidden');
+            document.querySelector('.ad-top').style.display = '';
+        }
     }
 
     updateLeaderboard() {
@@ -769,6 +775,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     game.loadGameState();
 
     if (typeof DailyStreak !== 'undefined') DailyStreak.init({ gameId: 'minesweeper', bestScoreKey: 'minesweeper_wins', minTarget: 1 });
+    if (typeof GameAds !== 'undefined') GameAds.init();
 
     // Hide app loader
     const loader = document.getElementById('app-loader');
