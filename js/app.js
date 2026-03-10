@@ -285,10 +285,10 @@ class Minesweeper {
             const row = Math.floor(Math.random() * this.rows);
             const col = Math.floor(Math.random() * this.cols);
 
-            if (
-                this.board[row][col] === -1 &&
-                !(row === excludeRow && col === excludeCol)
-            ) {
+            // Exclude 3x3 zone around first click for guaranteed opening
+            const inSafeZone = Math.abs(row - excludeRow) <= 1 && Math.abs(col - excludeCol) <= 1;
+
+            if (this.board[row][col] === -1 && !inSafeZone) {
                 this.board[row][col] = -2; // -2 means mine
                 minesPlaced++;
             }
@@ -321,13 +321,21 @@ class Minesweeper {
     }
 
     clickCell(row, col) {
-        if (this.gameOver || this.revealed[row][col] || this.flagged[row][col]) {
+        if (this.gameOver) return;
+
+        // Chord click: clicking a revealed number cell
+        if (this.revealed[row][col] && this.board[row][col] > 0) {
+            this.chordClick(row, col);
+            return;
+        }
+
+        if (this.revealed[row][col] || this.flagged[row][col]) {
             return;
         }
 
         this.revealStreak = 0;
 
-        // First click - place mines
+        // First click - place mines (safe 3x3 zone)
         if (this.firstClick) {
             this.startTime = Date.now();
             this.startTimer();
@@ -342,6 +350,42 @@ class Minesweeper {
         this.checkGameState();
 
         // Save after each reveal (unless game ended)
+        if (!this.gameOver) this.saveGameState();
+    }
+
+    chordClick(row, col) {
+        const number = this.board[row][col];
+        if (number <= 0) return;
+
+        // Count adjacent flags
+        let adjacentFlags = 0;
+        for (let i = -1; i <= 1; i++) {
+            for (let j = -1; j <= 1; j++) {
+                const r = row + i, c = col + j;
+                if (r >= 0 && r < this.rows && c >= 0 && c < this.cols) {
+                    if (this.flagged[r][c]) adjacentFlags++;
+                }
+            }
+        }
+
+        // Only chord if flag count matches the number
+        if (adjacentFlags !== number) return;
+
+        this.revealStreak = 0;
+
+        // Reveal all unflagged, unrevealed adjacent cells
+        for (let i = -1; i <= 1; i++) {
+            for (let j = -1; j <= 1; j++) {
+                const r = row + i, c = col + j;
+                if (r >= 0 && r < this.rows && c >= 0 && c < this.cols) {
+                    if (!this.revealed[r][c] && !this.flagged[r][c]) {
+                        this.revealCell(r, c);
+                    }
+                }
+            }
+        }
+
+        this.checkGameState();
         if (!this.gameOver) this.saveGameState();
     }
 

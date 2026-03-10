@@ -1,4 +1,4 @@
-const CACHE_NAME = 'minesweeper-v3';
+const CACHE_NAME = 'minesweeper-v4';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
