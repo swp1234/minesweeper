@@ -284,5 +284,10 @@
         <p style="text-align:center;margin-top:16px"><a href="https://dopabrain.com/portal/" style="opacity:0.5;font-size:13px;text-decoration:none;color:inherit">← DopaBrain Home</a></p>
     </nav>
     <script src="/portal/js/cross-promo.js" defer></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+</script>
 </body>
 </html>
