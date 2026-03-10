@@ -12,7 +12,8 @@
     "game": {
         "time": "Время",
         "flags": "Флаги",
-        "newGame": "Новая игра"
+        "newGame": "Новая игра",
+        "shareScore": "Поделиться"
     },
     "result": {
         "won": "Победа!",

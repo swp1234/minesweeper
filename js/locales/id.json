@@ -12,7 +12,8 @@
     "game": {
         "time": "Waktu",
         "flags": "Bendera",
-        "newGame": "Permainan Baru"
+        "newGame": "Permainan Baru",
+        "shareScore": "Bagikan Skor"
     },
     "result": {
         "won": "Kemenangan!",

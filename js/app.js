@@ -102,6 +102,12 @@ class Minesweeper {
             this.backToMenu();
         });
 
+        // Share score button
+        const shareScoreBtn = document.getElementById('share-score-btn');
+        if (shareScoreBtn) {
+            shareScoreBtn.addEventListener('click', () => this.shareScore());
+        }
+
         // Sound toggle
         this.soundToggle.addEventListener('click', () => {
             this.soundEnabled = !this.soundEnabled;
@@ -647,6 +653,24 @@ class Minesweeper {
         } else {
             cell.textContent = '🚩';
         }
+    }
+
+    shareScore() {
+        const time = this.finalTime.textContent;
+        const won = this.gameOverTitle.style.color === 'var(--success)';
+        const text = won
+            ? `I cleared Minesweeper in ${time}s! Can you beat me? \uD83D\uDCA3`
+            : `I played Minesweeper! Can you beat me? \uD83D\uDCA3`;
+        const url = 'https://dopabrain.com/minesweeper/';
+        if (navigator.share) {
+            navigator.share({ title: 'Minesweeper', text, url }).catch(() => {});
+        } else {
+            navigator.clipboard.writeText(text + '\n' + url).then(() => {
+                const btn = document.getElementById('share-score-btn');
+                if (btn) { const orig = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = orig, 1500); }
+            }).catch(() => {});
+        }
+        if (typeof gtag === 'function') gtag('event', 'share', { method: navigator.share ? 'native' : 'clipboard', app_name: 'minesweeper' });
     }
 
     backToMenu() {

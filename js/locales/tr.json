@@ -12,7 +12,8 @@
     "game": {
         "time": "Zaman",
         "flags": "Bayraklar",
-        "newGame": "Yeni Oyun"
+        "newGame": "Yeni Oyun",
+        "shareScore": "Puanı Paylaş"
     },
     "result": {
         "won": "Zafer!",

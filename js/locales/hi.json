@@ -12,7 +12,8 @@
     "game": {
         "time": "समय",
         "flags": "झंडे",
-        "newGame": "नया गेम"
+        "newGame": "नया गेम",
+        "shareScore": "स्कोर शेयर"
     },
     "result": {
         "won": "विजय!",

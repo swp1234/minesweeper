@@ -12,7 +12,8 @@
     "game": {
         "time": "시간",
         "flags": "깃발",
-        "newGame": "새 게임"
+        "newGame": "새 게임",
+        "shareScore": "점수 공유"
     },
     "result": {
         "won": "승리!",

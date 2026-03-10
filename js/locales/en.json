@@ -12,7 +12,8 @@
     "game": {
         "time": "Time",
         "flags": "Flags",
-        "newGame": "New Game"
+        "newGame": "New Game",
+        "shareScore": "Share Score"
     },
     "result": {
         "won": "Victory!",

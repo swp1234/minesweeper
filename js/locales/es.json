@@ -12,7 +12,8 @@
     "game": {
         "time": "Tiempo",
         "flags": "Banderas",
-        "newGame": "Nuevo Juego"
+        "newGame": "Nuevo Juego",
+        "shareScore": "Compartir"
     },
     "result": {
         "won": "¡Victoria!",

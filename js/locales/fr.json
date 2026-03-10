@@ -12,7 +12,8 @@
     "game": {
         "time": "Temps",
         "flags": "Drapeaux",
-        "newGame": "Nouveau Jeu"
+        "newGame": "Nouveau Jeu",
+        "shareScore": "Partager"
     },
     "result": {
         "won": "Victoire!",

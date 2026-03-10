@@ -12,7 +12,8 @@
     "game": {
         "time": "时间",
         "flags": "旗帜",
-        "newGame": "新游戏"
+        "newGame": "新游戏",
+        "shareScore": "分享分数"
     },
     "result": {
         "won": "胜利!",

@@ -12,7 +12,8 @@
     "game": {
         "time": "時間",
         "flags": "旗",
-        "newGame": "新しいゲーム"
+        "newGame": "新しいゲーム",
+        "shareScore": "スコア共有"
     },
     "result": {
         "won": "勝利!",
