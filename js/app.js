@@ -459,10 +459,27 @@ class Minesweeper {
             const wins = (parseInt(localStorage.getItem('minesweeper_wins')) || 0) + 1;
             localStorage.setItem('minesweeper_wins', wins);
             if (typeof DailyStreak !== 'undefined') DailyStreak.report(wins);
+            // Report achievements
+            if (typeof GameAchievements !== 'undefined') {
+                const totalGames = (parseInt(localStorage.getItem('minesweeper_games')) || 0) + 1;
+                localStorage.setItem('minesweeper_games', totalGames);
+                const expertWins = this.currentDifficulty === 'expert' ? 1 : 0;
+                GameAchievements.report({
+                    totalWins: wins,
+                    totalGames: totalGames,
+                    bestTime: 1,
+                    expertWins: expertWins
+                });
+            }
             this.showGameOver(true, elapsedTime);
         } else {
             this.playSound('explode');
             this.revealAllMines();
+            // Track total games (loss)
+            if (typeof GameAchievements !== 'undefined') {
+                const totalGames = (parseInt(localStorage.getItem('minesweeper_games')) || 0) + 1;
+                localStorage.setItem('minesweeper_games', totalGames);
+            }
             this.showGameOver(false, elapsedTime);
         }
     }
@@ -894,6 +911,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (typeof DailyStreak !== 'undefined') DailyStreak.init({ gameId: 'minesweeper', bestScoreKey: 'minesweeper_wins', minTarget: 1 });
     if (typeof GameAds !== 'undefined') GameAds.init();
+    if (typeof GameAchievements !== 'undefined') GameAchievements.init({
+        gameId: 'minesweeper',
+        defs: [
+            { id: 'wins_5', stat: 'totalWins', target: 5, icon: '⭐', name: 'Mine Finder' },
+            { id: 'wins_20', stat: 'totalWins', target: 20, icon: '🏆', name: 'Mine Master' },
+            { id: 'wins_50', stat: 'totalWins', target: 50, icon: '👑', name: 'Mine Legend' },
+            { id: 'games_10', stat: 'totalGames', target: 10, icon: '🎮', name: 'Regular Player' },
+            { id: 'best_60', stat: 'bestTime', target: 1, icon: '⚡', name: 'Speed Solver' },
+            { id: 'expert_win', stat: 'expertWins', target: 1, icon: '💎', name: 'Expert Clear' }
+        ]
+    });
 
     // Hide app loader
     const loader = document.getElementById('app-loader');
