@@ -39,6 +39,17 @@ class Minesweeper {
         this.audioContext = null;
         this.soundEnabled = true;
 
+        // Preload image assets
+        this.mineImg = new Image();
+        this.mineImg.src = 'assets/mine-opt.png';
+        this.mineImgReady = false;
+        this.mineImg.onload = () => { this.mineImgReady = true; };
+
+        this.flagImg = new Image();
+        this.flagImg.src = 'assets/flag-opt.png';
+        this.flagImgReady = false;
+        this.flagImg.onload = () => { this.flagImgReady = true; };
+
         // DOM Elements
         this.difficultyMenu = document.getElementById('difficulty-menu');
         this.gameInterface = document.getElementById('game-interface');
@@ -346,7 +357,7 @@ class Minesweeper {
         if (mineValue === -2) {
             // Mine hit
             cell.classList.add('opened', 'mine', 'revealed');
-            cell.textContent = '💣';
+            this._setCellMine(cell);
             this.playSound('mine');
             if (typeof Haptic !== 'undefined') Haptic.heavy();
             this.shakeBoard(8);
@@ -398,7 +409,7 @@ class Minesweeper {
 
         if (this.flagged[row][col]) {
             cell.classList.add('flagged');
-            cell.textContent = '🚩';
+            this._setCellFlag(cell);
         } else {
             cell.classList.remove('flagged');
             cell.textContent = '';
@@ -456,7 +467,7 @@ class Minesweeper {
                 if (this.board[i][j] === -2 && !this.revealed[i][j]) {
                     const cell = this.gameBoard.querySelector(`[data-row="${i}"][data-col="${j}"]`);
                     cell.classList.add('opened', 'mine');
-                    cell.textContent = '💣';
+                    this._setCellMine(cell);
                 }
             }
         }
@@ -611,6 +622,33 @@ class Minesweeper {
         });
     }
 
+    _createSpriteImg(img) {
+        const el = document.createElement('img');
+        el.src = img.src;
+        el.style.cssText = 'width:100%;height:100%;object-fit:contain;pointer-events:none;display:block;';
+        el.draggable = false;
+        el.alt = '';
+        return el;
+    }
+
+    _setCellMine(cell) {
+        cell.textContent = '';
+        if (this.mineImgReady) {
+            cell.appendChild(this._createSpriteImg(this.mineImg));
+        } else {
+            cell.textContent = '💣';
+        }
+    }
+
+    _setCellFlag(cell) {
+        cell.textContent = '';
+        if (this.flagImgReady) {
+            cell.appendChild(this._createSpriteImg(this.flagImg));
+        } else {
+            cell.textContent = '🚩';
+        }
+    }
+
     backToMenu() {
         this.clearTimer();
         this.clearSavedState();
@@ -696,7 +734,7 @@ class Minesweeper {
                         }
                     } else if (this.flagged[i][j]) {
                         cell.classList.add('flagged');
-                        cell.textContent = '🚩';
+                        this._setCellFlag(cell);
                     }
 
                     this.gameBoard.appendChild(cell);
