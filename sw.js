@@ -1,8 +1,10 @@
-const CACHE_NAME = 'minesweeper-v1';
+const CACHE_NAME = 'minesweeper-v2';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
   '/css/style.css',
+  '/assets/mine-opt.png',
+  '/assets/flag-opt.png',
   '/js/app.js',
   '/js/i18n.js',
   '/js/locales/ko.json',
