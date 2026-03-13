@@ -25,7 +25,8 @@
     "cells": "Células Reveladas",
     "bestTime": "Melhor Tempo",
     "playAgain": "Jogar Novamente",
-    "backMenu": "Voltar ao Menu"
+    "backMenu": "Voltar ao Menu",
+    "winRate": "Taxa Vitória"
   },
   "kbd": {
     "navigate": "Navegar",

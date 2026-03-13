@@ -25,7 +25,8 @@
     "cells": "Celdas Reveladas",
     "bestTime": "Mejor Tiempo",
     "playAgain": "Jugar de Nuevo",
-    "backMenu": "Volver al Menú"
+    "backMenu": "Volver al Menú",
+    "winRate": "Porcentaje"
   },
   "kbd": {
     "navigate": "Navegar",

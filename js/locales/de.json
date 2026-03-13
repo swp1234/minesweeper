@@ -25,7 +25,8 @@
     "cells": "Aufgedeckte Zellen",
     "bestTime": "Beste Zeit",
     "playAgain": "Nochmal spielen",
-    "backMenu": "Zurück zum Menü"
+    "backMenu": "Zurück zum Menü",
+    "winRate": "Gewinnrate"
   },
   "kbd": {
     "navigate": "Navigieren",

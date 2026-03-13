@@ -25,7 +25,8 @@
     "cells": "Cellules Découvertes",
     "bestTime": "Meilleur Temps",
     "playAgain": "Rejouer",
-    "backMenu": "Retour au Menu"
+    "backMenu": "Retour au Menu",
+    "winRate": "Taux Victoire"
   },
   "kbd": {
     "navigate": "Naviguer",

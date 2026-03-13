@@ -25,7 +25,8 @@
     "cells": "開いたセル",
     "bestTime": "ベストタイム",
     "playAgain": "もう一度プレイ",
-    "backMenu": "メニューに戻る"
+    "backMenu": "メニューに戻る",
+    "winRate": "勝率"
   },
   "kbd": {
     "navigate": "移動",

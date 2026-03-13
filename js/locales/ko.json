@@ -25,7 +25,8 @@
     "cells": "열린 셀",
     "bestTime": "최고 기록",
     "playAgain": "다시 하기",
-    "backMenu": "메뉴로"
+    "backMenu": "메뉴로",
+    "winRate": "Win Rate"
   },
   "kbd": {
     "navigate": "이동",

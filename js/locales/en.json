@@ -25,7 +25,8 @@
     "cells": "Cells Cleared",
     "bestTime": "Best Time",
     "playAgain": "Play Again",
-    "backMenu": "Back to Menu"
+    "backMenu": "Back to Menu",
+    "winRate": "Win Rate"
   },
   "kbd": {
     "navigate": "Navigate",

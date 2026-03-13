@@ -627,6 +627,14 @@ class Minesweeper {
         this.finalDifficulty.textContent = i18n.t(`difficulty.${this.currentDifficulty}`);
         this.finalCells.textContent = this.revealedCount;
 
+        // Show win rate stat
+        const totalWins = parseInt(localStorage.getItem('minesweeper_wins')) || 0;
+        const totalGames = parseInt(localStorage.getItem('minesweeper_games')) || 0;
+        const winRateEl = document.getElementById('win-rate');
+        if (winRateEl && totalGames > 0) {
+            winRateEl.textContent = Math.round((totalWins / totalGames) * 100) + '%';
+        }
+
         // Update leaderboard
         this.updateLeaderboard();
 

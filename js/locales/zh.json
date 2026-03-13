@@ -25,7 +25,8 @@
     "cells": "打开的格子",
     "bestTime": "最佳时间",
     "playAgain": "再玩一次",
-    "backMenu": "返回菜单"
+    "backMenu": "返回菜单",
+    "winRate": "胜率"
   },
   "kbd": {
     "navigate": "移动",
