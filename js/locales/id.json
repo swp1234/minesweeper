@@ -1,46 +1,46 @@
 {
-    "app": {
-        "title": "Penyapu Ranjau - Permainan Puzzle Klasik",
-        "subtitle": "Temukan ranjau yang tersembunyi!"
-    },
-    "difficulty": {
-        "title": "Pilih Tingkat Kesulitan",
-        "beginner": "Pemula",
-        "intermediate": "Menengah",
-        "expert": "Ahli"
-    },
-    "game": {
-        "time": "Waktu",
-        "flags": "Bendera",
-        "newGame": "Permainan Baru",
-        "shareScore": "Bagikan Skor"
-    },
-    "result": {
-        "won": "Kemenangan!",
-        "wonMessage": "Selamat! Anda telah membuka semua sel yang aman!",
-        "lost": "Permainan Berakhir",
-        "lostMessage": "Anda mengenai ranjau. Coba lagi!",
-        "time": "Waktu",
-        "difficulty": "Tingkat Kesulitan",
-        "cells": "Sel Terbuka",
-        "bestTime": "Waktu Terbaik",
-        "playAgain": "Mainkan Lagi",
-        "backMenu": "Kembali ke Menu"
-    },
-    "kbd": {
-        "navigate": "Navigasi",
-        "reveal": "Buka",
-        "flag": "Bendera",
-        "restart": "Mulai ulang"
-    },
-    "share": {
-        "twitter": "Twitter",
-        "copyUrl": "Salin URL"
-    },
-    "nav": {
-        "relatedArticles": "📖 Artikel terkait",
-        "backHome": "← Beranda DopaBrain"
-    },
+  "app": {
+    "title": "Penyapu Ranjau - Permainan Puzzle Klasik",
+    "subtitle": "Temukan ranjau yang tersembunyi!"
+  },
+  "difficulty": {
+    "title": "Pilih Tingkat Kesulitan",
+    "beginner": "Pemula",
+    "intermediate": "Menengah",
+    "expert": "Ahli"
+  },
+  "game": {
+    "time": "Waktu",
+    "flags": "Bendera",
+    "newGame": "Permainan Baru",
+    "shareScore": "Bagikan Skor"
+  },
+  "result": {
+    "won": "Kemenangan!",
+    "wonMessage": "Selamat! Anda telah membuka semua sel yang aman!",
+    "lost": "Permainan Berakhir",
+    "lostMessage": "Anda mengenai ranjau. Coba lagi!",
+    "time": "Waktu",
+    "difficulty": "Tingkat Kesulitan",
+    "cells": "Sel Terbuka",
+    "bestTime": "Waktu Terbaik",
+    "playAgain": "Mainkan Lagi",
+    "backMenu": "Kembali ke Menu"
+  },
+  "kbd": {
+    "navigate": "Navigasi",
+    "reveal": "Buka",
+    "flag": "Bendera",
+    "restart": "Mulai ulang"
+  },
+  "share": {
+    "twitter": "Twitter",
+    "copyUrl": "Salin URL"
+  },
+  "nav": {
+    "relatedArticles": "📖 Artikel terkait",
+    "backHome": "← Beranda DopaBrain"
+  },
   "error": {
     "storage": "Beberapa fitur mungkin terbatas dalam mode privat.",
     "data": "Kesalahan memuat data. Silakan muat ulang.",
@@ -48,5 +48,12 @@
     "audio": "Audio tidak tersedia. Anda dapat melanjutkan.",
     "network": "Periksa koneksi Anda dan coba lagi.",
     "general": "Terjadi kesalahan. Muat ulang atau coba lagi."
+  },
+  "related": {
+    "title": "Jelajahi lebih lanjut",
+    "numberPuzzle": "Puzzle Angka",
+    "puzzle2048": "Puzzle 2048",
+    "memoryCard": "Kartu Memori",
+    "mazeRunner": "Labirin"
   }
 }

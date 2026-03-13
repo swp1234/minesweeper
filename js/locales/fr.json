@@ -1,46 +1,46 @@
 {
-    "app": {
-        "title": "Démineur - Jeu de Puzzle Classique",
-        "subtitle": "Trouvez les mines cachées!"
-    },
-    "difficulty": {
-        "title": "Sélectionnez la Difficulté",
-        "beginner": "Débutant",
-        "intermediate": "Intermédiaire",
-        "expert": "Expert"
-    },
-    "game": {
-        "time": "Temps",
-        "flags": "Drapeaux",
-        "newGame": "Nouveau Jeu",
-        "shareScore": "Partager"
-    },
-    "result": {
-        "won": "Victoire!",
-        "wonMessage": "Félicitations! Vous avez découvert toutes les cellules sûres!",
-        "lost": "Fin de Jeu",
-        "lostMessage": "Vous avez marché sur une mine. Réessayez!",
-        "time": "Temps",
-        "difficulty": "Difficulté",
-        "cells": "Cellules Découvertes",
-        "bestTime": "Meilleur Temps",
-        "playAgain": "Rejouer",
-        "backMenu": "Retour au Menu"
-    },
-    "kbd": {
-        "navigate": "Naviguer",
-        "reveal": "Révéler",
-        "flag": "Drapeau",
-        "restart": "Redémarrer"
-    },
-    "share": {
-        "twitter": "Twitter",
-        "copyUrl": "Copier l'URL"
-    },
-    "nav": {
-        "relatedArticles": "📖 Articles connexes",
-        "backHome": "← Accueil DopaBrain"
-    },
+  "app": {
+    "title": "Démineur - Jeu de Puzzle Classique",
+    "subtitle": "Trouvez les mines cachées!"
+  },
+  "difficulty": {
+    "title": "Sélectionnez la Difficulté",
+    "beginner": "Débutant",
+    "intermediate": "Intermédiaire",
+    "expert": "Expert"
+  },
+  "game": {
+    "time": "Temps",
+    "flags": "Drapeaux",
+    "newGame": "Nouveau Jeu",
+    "shareScore": "Partager"
+  },
+  "result": {
+    "won": "Victoire!",
+    "wonMessage": "Félicitations! Vous avez découvert toutes les cellules sûres!",
+    "lost": "Fin de Jeu",
+    "lostMessage": "Vous avez marché sur une mine. Réessayez!",
+    "time": "Temps",
+    "difficulty": "Difficulté",
+    "cells": "Cellules Découvertes",
+    "bestTime": "Meilleur Temps",
+    "playAgain": "Rejouer",
+    "backMenu": "Retour au Menu"
+  },
+  "kbd": {
+    "navigate": "Naviguer",
+    "reveal": "Révéler",
+    "flag": "Drapeau",
+    "restart": "Redémarrer"
+  },
+  "share": {
+    "twitter": "Twitter",
+    "copyUrl": "Copier l'URL"
+  },
+  "nav": {
+    "relatedArticles": "📖 Articles connexes",
+    "backHome": "← Accueil DopaBrain"
+  },
   "error": {
     "storage": "Certaines fonctions peuvent être limitées en mode privé.",
     "data": "Erreur de chargement. Veuillez rafraîchir la page.",
@@ -48,5 +48,12 @@
     "audio": "Audio indisponible. Vous pouvez continuer.",
     "network": "Vérifiez votre connexion et réessayez.",
     "general": "Un problème est survenu. Rafraîchissez ou réessayez."
+  },
+  "related": {
+    "title": "Plus à explorer",
+    "numberPuzzle": "Puzzle numérique",
+    "puzzle2048": "Puzzle 2048",
+    "memoryCard": "Jeu de mémoire",
+    "mazeRunner": "Labyrinthe"
   }
 }

@@ -1,46 +1,46 @@
 {
-    "app": {
-        "title": "扫雷 - 经典益智游戏",
-        "subtitle": "找到隐藏的地雷!"
-    },
-    "difficulty": {
-        "title": "选择难度",
-        "beginner": "初级",
-        "intermediate": "中级",
-        "expert": "高级"
-    },
-    "game": {
-        "time": "时间",
-        "flags": "旗帜",
-        "newGame": "新游戏",
-        "shareScore": "分享分数"
-    },
-    "result": {
-        "won": "胜利!",
-        "wonMessage": "恭喜!你已经打开所有安全格子!",
-        "lost": "游戏结束",
-        "lostMessage": "你踩到了地雷。再试一次!",
-        "time": "时间",
-        "difficulty": "难度",
-        "cells": "打开的格子",
-        "bestTime": "最佳时间",
-        "playAgain": "再玩一次",
-        "backMenu": "返回菜单"
-    },
-    "kbd": {
-        "navigate": "移动",
-        "reveal": "揭示",
-        "flag": "标记",
-        "restart": "重启"
-    },
-    "share": {
-        "twitter": "Twitter",
-        "copyUrl": "复制链接"
-    },
-    "nav": {
-        "relatedArticles": "📖 相关文章",
-        "backHome": "← DopaBrain 首页"
-    },
+  "app": {
+    "title": "扫雷 - 经典益智游戏",
+    "subtitle": "找到隐藏的地雷!"
+  },
+  "difficulty": {
+    "title": "选择难度",
+    "beginner": "初级",
+    "intermediate": "中级",
+    "expert": "高级"
+  },
+  "game": {
+    "time": "时间",
+    "flags": "旗帜",
+    "newGame": "新游戏",
+    "shareScore": "分享分数"
+  },
+  "result": {
+    "won": "胜利!",
+    "wonMessage": "恭喜!你已经打开所有安全格子!",
+    "lost": "游戏结束",
+    "lostMessage": "你踩到了地雷。再试一次!",
+    "time": "时间",
+    "difficulty": "难度",
+    "cells": "打开的格子",
+    "bestTime": "最佳时间",
+    "playAgain": "再玩一次",
+    "backMenu": "返回菜单"
+  },
+  "kbd": {
+    "navigate": "移动",
+    "reveal": "揭示",
+    "flag": "标记",
+    "restart": "重启"
+  },
+  "share": {
+    "twitter": "Twitter",
+    "copyUrl": "复制链接"
+  },
+  "nav": {
+    "relatedArticles": "📖 相关文章",
+    "backHome": "← DopaBrain 首页"
+  },
   "error": {
     "storage": "隐私模式下部分功能可能受限。",
     "data": "数据加载错误，请刷新页面。",
@@ -48,5 +48,12 @@
     "audio": "音频不可用，可继续使用。",
     "network": "请检查网络连接后重试。",
     "general": "出现问题，请刷新或重试。"
+  },
+  "related": {
+    "title": "更多探索",
+    "numberPuzzle": "数字拼图",
+    "puzzle2048": "2048拼图",
+    "memoryCard": "记忆卡片",
+    "mazeRunner": "迷宫跑者"
   }
 }

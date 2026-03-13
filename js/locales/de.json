@@ -1,46 +1,46 @@
 {
-    "app": {
-        "title": "Minesweeper - Klassisches Puzzlespiel",
-        "subtitle": "Finden Sie die versteckten Minen!"
-    },
-    "difficulty": {
-        "title": "Schwierigkeitsgrad wählen",
-        "beginner": "Anfänger",
-        "intermediate": "Mittelstufe",
-        "expert": "Experte"
-    },
-    "game": {
-        "time": "Zeit",
-        "flags": "Flaggen",
-        "newGame": "Neues Spiel",
-        "shareScore": "Teilen"
-    },
-    "result": {
-        "won": "Sieg!",
-        "wonMessage": "Glückwunsch! Sie haben alle sicheren Zellen aufgedeckt!",
-        "lost": "Spielende",
-        "lostMessage": "Sie haben eine Mine betreten. Versuchen Sie es erneut!",
-        "time": "Zeit",
-        "difficulty": "Schwierigkeit",
-        "cells": "Aufgedeckte Zellen",
-        "bestTime": "Beste Zeit",
-        "playAgain": "Nochmal spielen",
-        "backMenu": "Zurück zum Menü"
-    },
-    "kbd": {
-        "navigate": "Navigieren",
-        "reveal": "Aufdecken",
-        "flag": "Flagge",
-        "restart": "Neustart"
-    },
-    "share": {
-        "twitter": "Twitter",
-        "copyUrl": "URL kopieren"
-    },
-    "nav": {
-        "relatedArticles": "📖 Verwandte Artikel",
-        "backHome": "← DopaBrain Startseite"
-    },
+  "app": {
+    "title": "Minesweeper - Klassisches Puzzlespiel",
+    "subtitle": "Finden Sie die versteckten Minen!"
+  },
+  "difficulty": {
+    "title": "Schwierigkeitsgrad wählen",
+    "beginner": "Anfänger",
+    "intermediate": "Mittelstufe",
+    "expert": "Experte"
+  },
+  "game": {
+    "time": "Zeit",
+    "flags": "Flaggen",
+    "newGame": "Neues Spiel",
+    "shareScore": "Teilen"
+  },
+  "result": {
+    "won": "Sieg!",
+    "wonMessage": "Glückwunsch! Sie haben alle sicheren Zellen aufgedeckt!",
+    "lost": "Spielende",
+    "lostMessage": "Sie haben eine Mine betreten. Versuchen Sie es erneut!",
+    "time": "Zeit",
+    "difficulty": "Schwierigkeit",
+    "cells": "Aufgedeckte Zellen",
+    "bestTime": "Beste Zeit",
+    "playAgain": "Nochmal spielen",
+    "backMenu": "Zurück zum Menü"
+  },
+  "kbd": {
+    "navigate": "Navigieren",
+    "reveal": "Aufdecken",
+    "flag": "Flagge",
+    "restart": "Neustart"
+  },
+  "share": {
+    "twitter": "Twitter",
+    "copyUrl": "URL kopieren"
+  },
+  "nav": {
+    "relatedArticles": "📖 Verwandte Artikel",
+    "backHome": "← DopaBrain Startseite"
+  },
   "error": {
     "storage": "Einige Funktionen sind im privaten Modus eingeschränkt.",
     "data": "Fehler beim Laden. Bitte Seite aktualisieren.",
@@ -48,5 +48,12 @@
     "audio": "Audio nicht verfügbar. Sie können fortfahren.",
     "network": "Bitte Verbindung prüfen und erneut versuchen.",
     "general": "Etwas ist schiefgelaufen. Bitte aktualisieren oder erneut versuchen."
+  },
+  "related": {
+    "title": "Mehr entdecken",
+    "numberPuzzle": "Zahlen-Puzzle",
+    "puzzle2048": "2048 Puzzle",
+    "memoryCard": "Memory-Spiel",
+    "mazeRunner": "Labyrinth"
   }
 }

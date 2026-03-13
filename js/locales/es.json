@@ -1,46 +1,46 @@
 {
-    "app": {
-        "title": "Buscaminas - Juego de Puzzle Clásico",
-        "subtitle": "¡Encuentra las minas ocultas!"
-    },
-    "difficulty": {
-        "title": "Selecciona la Dificultad",
-        "beginner": "Principiante",
-        "intermediate": "Intermedio",
-        "expert": "Experto"
-    },
-    "game": {
-        "time": "Tiempo",
-        "flags": "Banderas",
-        "newGame": "Nuevo Juego",
-        "shareScore": "Compartir"
-    },
-    "result": {
-        "won": "¡Victoria!",
-        "wonMessage": "¡Felicidades! ¡Has revelado todas las celdas seguras!",
-        "lost": "Fin del Juego",
-        "lostMessage": "¡Pisaste una mina! ¡Intenta de nuevo!",
-        "time": "Tiempo",
-        "difficulty": "Dificultad",
-        "cells": "Celdas Reveladas",
-        "bestTime": "Mejor Tiempo",
-        "playAgain": "Jugar de Nuevo",
-        "backMenu": "Volver al Menú"
-    },
-    "kbd": {
-        "navigate": "Navegar",
-        "reveal": "Revelar",
-        "flag": "Bandera",
-        "restart": "Reiniciar"
-    },
-    "share": {
-        "twitter": "Twitter",
-        "copyUrl": "Copiar URL"
-    },
-    "nav": {
-        "relatedArticles": "📖 Artículos relacionados",
-        "backHome": "← Inicio DopaBrain"
-    },
+  "app": {
+    "title": "Buscaminas - Juego de Puzzle Clásico",
+    "subtitle": "¡Encuentra las minas ocultas!"
+  },
+  "difficulty": {
+    "title": "Selecciona la Dificultad",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "expert": "Experto"
+  },
+  "game": {
+    "time": "Tiempo",
+    "flags": "Banderas",
+    "newGame": "Nuevo Juego",
+    "shareScore": "Compartir"
+  },
+  "result": {
+    "won": "¡Victoria!",
+    "wonMessage": "¡Felicidades! ¡Has revelado todas las celdas seguras!",
+    "lost": "Fin del Juego",
+    "lostMessage": "¡Pisaste una mina! ¡Intenta de nuevo!",
+    "time": "Tiempo",
+    "difficulty": "Dificultad",
+    "cells": "Celdas Reveladas",
+    "bestTime": "Mejor Tiempo",
+    "playAgain": "Jugar de Nuevo",
+    "backMenu": "Volver al Menú"
+  },
+  "kbd": {
+    "navigate": "Navegar",
+    "reveal": "Revelar",
+    "flag": "Bandera",
+    "restart": "Reiniciar"
+  },
+  "share": {
+    "twitter": "Twitter",
+    "copyUrl": "Copiar URL"
+  },
+  "nav": {
+    "relatedArticles": "📖 Artículos relacionados",
+    "backHome": "← Inicio DopaBrain"
+  },
   "error": {
     "storage": "Algunas funciones pueden estar limitadas en modo privado.",
     "data": "Error al cargar datos. Actualice la página.",
@@ -48,5 +48,12 @@
     "audio": "Audio no disponible. Puede continuar.",
     "network": "Verifique su conexión e inténtelo de nuevo.",
     "general": "Algo salió mal. Actualice o inténtelo de nuevo."
+  },
+  "related": {
+    "title": "Más por explorar",
+    "numberPuzzle": "Puzzle numérico",
+    "puzzle2048": "Puzzle 2048",
+    "memoryCard": "Memoria",
+    "mazeRunner": "Laberinto"
   }
 }

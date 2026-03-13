@@ -1,46 +1,46 @@
 {
-    "app": {
-        "title": "지뢰찾기 - 클래식 퍼즐 게임",
-        "subtitle": "숨겨진 지뢰를 찾아보세요!"
-    },
-    "difficulty": {
-        "title": "난이도를 선택하세요",
-        "beginner": "초급",
-        "intermediate": "중급",
-        "expert": "고급"
-    },
-    "game": {
-        "time": "시간",
-        "flags": "깃발",
-        "newGame": "새 게임",
-        "shareScore": "점수 공유"
-    },
-    "result": {
-        "won": "승리!",
-        "wonMessage": "축하합니다! 모든 안전한 셀을 열었습니다!",
-        "lost": "게임 오버",
-        "lostMessage": "지뢰를 밟으셨어요. 다시 시도해보세요!",
-        "time": "시간",
-        "difficulty": "난이도",
-        "cells": "열린 셀",
-        "bestTime": "최고 기록",
-        "playAgain": "다시 하기",
-        "backMenu": "메뉴로"
-    },
-    "kbd": {
-        "navigate": "이동",
-        "reveal": "열기",
-        "flag": "깃발",
-        "restart": "재시작"
-    },
-    "share": {
-        "twitter": "Twitter",
-        "copyUrl": "URL 복사"
-    },
-    "nav": {
-        "relatedArticles": "📖 관련 글",
-        "backHome": "← DopaBrain 홈"
-    },
+  "app": {
+    "title": "지뢰찾기 - 클래식 퍼즐 게임",
+    "subtitle": "숨겨진 지뢰를 찾아보세요!"
+  },
+  "difficulty": {
+    "title": "난이도를 선택하세요",
+    "beginner": "초급",
+    "intermediate": "중급",
+    "expert": "고급"
+  },
+  "game": {
+    "time": "시간",
+    "flags": "깃발",
+    "newGame": "새 게임",
+    "shareScore": "점수 공유"
+  },
+  "result": {
+    "won": "승리!",
+    "wonMessage": "축하합니다! 모든 안전한 셀을 열었습니다!",
+    "lost": "게임 오버",
+    "lostMessage": "지뢰를 밟으셨어요. 다시 시도해보세요!",
+    "time": "시간",
+    "difficulty": "난이도",
+    "cells": "열린 셀",
+    "bestTime": "최고 기록",
+    "playAgain": "다시 하기",
+    "backMenu": "메뉴로"
+  },
+  "kbd": {
+    "navigate": "이동",
+    "reveal": "열기",
+    "flag": "깃발",
+    "restart": "재시작"
+  },
+  "share": {
+    "twitter": "Twitter",
+    "copyUrl": "URL 복사"
+  },
+  "nav": {
+    "relatedArticles": "📖 관련 글",
+    "backHome": "← DopaBrain 홈"
+  },
   "error": {
     "storage": "개인 정보 보호 모드에서는 일부 기능이 제한될 수 있습니다.",
     "data": "데이터 로드 중 문제가 발생했습니다. 새로고침해주세요.",
@@ -48,5 +48,12 @@
     "audio": "음성 기능을 사용할 수 없습니다. 계속 진행하실 수 있습니다.",
     "network": "네트워크 연결을 확인해주세요.",
     "general": "문제가 발생했습니다. 새로고침하거나 다시 시도해주세요."
+  },
+  "related": {
+    "title": "더 많은 콘텐츠",
+    "numberPuzzle": "숫자 퍼즐",
+    "puzzle2048": "2048 퍼즐",
+    "memoryCard": "메모리 카드",
+    "mazeRunner": "미로 탈출"
   }
 }

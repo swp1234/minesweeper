@@ -1,46 +1,46 @@
 {
-    "app": {
-        "title": "マインスイーパー - クラシックパズルゲーム",
-        "subtitle": "隠れた地雷を見つけましょう!"
-    },
-    "difficulty": {
-        "title": "難易度を選択",
-        "beginner": "初級",
-        "intermediate": "中級",
-        "expert": "上級"
-    },
-    "game": {
-        "time": "時間",
-        "flags": "旗",
-        "newGame": "新しいゲーム",
-        "shareScore": "スコア共有"
-    },
-    "result": {
-        "won": "勝利!",
-        "wonMessage": "おめでとうございます!すべての安全なセルを開きました!",
-        "lost": "ゲームオーバー",
-        "lostMessage": "地雷を踏んでしまいました。もう一度試してください!",
-        "time": "時間",
-        "difficulty": "難易度",
-        "cells": "開いたセル",
-        "bestTime": "ベストタイム",
-        "playAgain": "もう一度プレイ",
-        "backMenu": "メニューに戻る"
-    },
-    "kbd": {
-        "navigate": "移動",
-        "reveal": "開く",
-        "flag": "フラグ",
-        "restart": "再起動"
-    },
-    "share": {
-        "twitter": "Twitter",
-        "copyUrl": "URLをコピー"
-    },
-    "nav": {
-        "relatedArticles": "📖 関連記事",
-        "backHome": "← DopaBrain ホーム"
-    },
+  "app": {
+    "title": "マインスイーパー - クラシックパズルゲーム",
+    "subtitle": "隠れた地雷を見つけましょう!"
+  },
+  "difficulty": {
+    "title": "難易度を選択",
+    "beginner": "初級",
+    "intermediate": "中級",
+    "expert": "上級"
+  },
+  "game": {
+    "time": "時間",
+    "flags": "旗",
+    "newGame": "新しいゲーム",
+    "shareScore": "スコア共有"
+  },
+  "result": {
+    "won": "勝利!",
+    "wonMessage": "おめでとうございます!すべての安全なセルを開きました!",
+    "lost": "ゲームオーバー",
+    "lostMessage": "地雷を踏んでしまいました。もう一度試してください!",
+    "time": "時間",
+    "difficulty": "難易度",
+    "cells": "開いたセル",
+    "bestTime": "ベストタイム",
+    "playAgain": "もう一度プレイ",
+    "backMenu": "メニューに戻る"
+  },
+  "kbd": {
+    "navigate": "移動",
+    "reveal": "開く",
+    "flag": "フラグ",
+    "restart": "再起動"
+  },
+  "share": {
+    "twitter": "Twitter",
+    "copyUrl": "URLをコピー"
+  },
+  "nav": {
+    "relatedArticles": "📖 関連記事",
+    "backHome": "← DopaBrain ホーム"
+  },
   "error": {
     "storage": "プライベートモードでは一部機能が制限されます。",
     "data": "データ読み込みエラー。ページを更新してください。",
@@ -48,5 +48,12 @@
     "audio": "音声が利用できません。続行できます。",
     "network": "接続を確認して再試行してください。",
     "general": "問題が発生しました。更新するか再試行してください。"
+  },
+  "related": {
+    "title": "もっと探す",
+    "numberPuzzle": "ナンバーパズル",
+    "puzzle2048": "2048パズル",
+    "memoryCard": "神経衰弱",
+    "mazeRunner": "迷路ランナー"
   }
 }

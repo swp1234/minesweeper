@@ -1,46 +1,46 @@
 {
-    "app": {
-        "title": "Mayın Tarlası - Klasik Bulmaca Oyunu",
-        "subtitle": "Gizli mayınları bulun!"
-    },
-    "difficulty": {
-        "title": "Zorluk Seviyesini Seçin",
-        "beginner": "Başlangıç",
-        "intermediate": "Orta",
-        "expert": "Uzman"
-    },
-    "game": {
-        "time": "Zaman",
-        "flags": "Bayraklar",
-        "newGame": "Yeni Oyun",
-        "shareScore": "Puanı Paylaş"
-    },
-    "result": {
-        "won": "Zafer!",
-        "wonMessage": "Tebrikler! Tüm güvenli hücreleri açtınız!",
-        "lost": "Oyun Bitti",
-        "lostMessage": "Bir mayını attınız. Tekrar deneyin!",
-        "time": "Zaman",
-        "difficulty": "Zorluk",
-        "cells": "Açılan Hücreler",
-        "bestTime": "En İyi Zaman",
-        "playAgain": "Tekrar Oyna",
-        "backMenu": "Menüye Dön"
-    },
-    "kbd": {
-        "navigate": "Gezin",
-        "reveal": "Aç",
-        "flag": "Bayrak",
-        "restart": "Yeniden başlat"
-    },
-    "share": {
-        "twitter": "Twitter",
-        "copyUrl": "URL'yi kopyala"
-    },
-    "nav": {
-        "relatedArticles": "📖 İlgili makaleler",
-        "backHome": "← DopaBrain Ana Sayfa"
-    },
+  "app": {
+    "title": "Mayın Tarlası - Klasik Bulmaca Oyunu",
+    "subtitle": "Gizli mayınları bulun!"
+  },
+  "difficulty": {
+    "title": "Zorluk Seviyesini Seçin",
+    "beginner": "Başlangıç",
+    "intermediate": "Orta",
+    "expert": "Uzman"
+  },
+  "game": {
+    "time": "Zaman",
+    "flags": "Bayraklar",
+    "newGame": "Yeni Oyun",
+    "shareScore": "Puanı Paylaş"
+  },
+  "result": {
+    "won": "Zafer!",
+    "wonMessage": "Tebrikler! Tüm güvenli hücreleri açtınız!",
+    "lost": "Oyun Bitti",
+    "lostMessage": "Bir mayını attınız. Tekrar deneyin!",
+    "time": "Zaman",
+    "difficulty": "Zorluk",
+    "cells": "Açılan Hücreler",
+    "bestTime": "En İyi Zaman",
+    "playAgain": "Tekrar Oyna",
+    "backMenu": "Menüye Dön"
+  },
+  "kbd": {
+    "navigate": "Gezin",
+    "reveal": "Aç",
+    "flag": "Bayrak",
+    "restart": "Yeniden başlat"
+  },
+  "share": {
+    "twitter": "Twitter",
+    "copyUrl": "URL'yi kopyala"
+  },
+  "nav": {
+    "relatedArticles": "📖 İlgili makaleler",
+    "backHome": "← DopaBrain Ana Sayfa"
+  },
   "error": {
     "storage": "Gizli modda bazı özellikler sınırlı olabilir.",
     "data": "Veri yükleme hatası. Lütfen sayfayı yenileyin.",
@@ -48,5 +48,12 @@
     "audio": "Ses kullanılamıyor. Devam edebilirsiniz.",
     "network": "Bağlantınızı kontrol edip tekrar deneyin.",
     "general": "Bir şeyler ters gitti. Yenileyip tekrar deneyin."
+  },
+  "related": {
+    "title": "Daha fazla keşfet",
+    "numberPuzzle": "Sayı Bulmacası",
+    "puzzle2048": "2048 Bulmaca",
+    "memoryCard": "Hafıza Kartı",
+    "mazeRunner": "Labirent"
   }
 }
