@@ -116,6 +116,14 @@ class Minesweeper {
 
         this.updateSoundButton();
 
+        // Hint button
+        this.hintBtn = document.getElementById('hint-btn');
+        this.hintCountEl = document.getElementById('hint-count');
+        this.hintsRemaining = 3;
+        if (this.hintBtn) {
+            this.hintBtn.addEventListener('click', () => this.useHint());
+        }
+
         // Global keyboard navigation
         document.addEventListener('keydown', (e) => this.handleGlobalKeyDown(e));
     }
@@ -126,6 +134,15 @@ class Minesweeper {
             if (this.currentDifficulty && !this.gameInterface.classList.contains('hidden')) {
                 e.preventDefault();
                 this.startNewGame(this.currentDifficulty);
+                return;
+            }
+        }
+
+        // H for hint
+        if (e.key === 'h' || e.key === 'H') {
+            if (this.currentDifficulty && !this.gameOver) {
+                e.preventDefault();
+                this.useHint();
                 return;
             }
         }
@@ -202,6 +219,9 @@ class Minesweeper {
         this.revealStreak = 0;
         this.startTime = null;
         this.clearTimer();
+        this.hintsRemaining = 3;
+        if (this.hintCountEl) this.hintCountEl.textContent = '3';
+        if (this.hintBtn) this.hintBtn.disabled = false;
 
         // Set grid template
         this.gameBoard.style.gridTemplateColumns = `repeat(${this.cols}, 44px)`;
@@ -476,6 +496,55 @@ class Minesweeper {
         const flaggedCount = this.flagged.flat().filter(f => f).length;
         const remaining = this.mineCount - flaggedCount;
         this.flagCounter.textContent = remaining;
+    }
+
+    useHint() {
+        if (this.gameOver || this.firstClick || this.hintsRemaining <= 0) return;
+
+        // Find safe unrevealed cells adjacent to revealed numbers
+        const candidates = [];
+        for (let r = 0; r < this.rows; r++) {
+            for (let c = 0; c < this.cols; c++) {
+                if (this.revealed[r][c] || this.flagged[r][c]) continue;
+                if (this.board[r][c] === -2) continue; // mine
+
+                // Prefer cells adjacent to revealed cells (more useful hints)
+                let adjacentToRevealed = false;
+                for (let dr = -1; dr <= 1; dr++) {
+                    for (let dc = -1; dc <= 1; dc++) {
+                        const nr = r + dr, nc = c + dc;
+                        if (nr >= 0 && nr < this.rows && nc >= 0 && nc < this.cols && this.revealed[nr][nc]) {
+                            adjacentToRevealed = true;
+                        }
+                    }
+                }
+                if (adjacentToRevealed) {
+                    candidates.push({ row: r, col: c, priority: 1 });
+                } else {
+                    candidates.push({ row: r, col: c, priority: 0 });
+                }
+            }
+        }
+
+        if (candidates.length === 0) return;
+
+        // Prefer adjacent cells, then random
+        candidates.sort((a, b) => b.priority - a.priority);
+        const topPriority = candidates[0].priority;
+        const topCandidates = candidates.filter(c => c.priority === topPriority);
+        const chosen = topCandidates[Math.floor(Math.random() * topCandidates.length)];
+
+        // Highlight the cell with pulse animation
+        const cell = this.gameBoard.querySelector(`[data-row="${chosen.row}"][data-col="${chosen.col}"]`);
+        if (cell) {
+            cell.classList.add('hint-cell');
+            setTimeout(() => cell.classList.remove('hint-cell'), 2500);
+        }
+
+        this.hintsRemaining--;
+        if (this.hintCountEl) this.hintCountEl.textContent = this.hintsRemaining;
+        if (this.hintsRemaining <= 0 && this.hintBtn) this.hintBtn.disabled = true;
+        this.playSound('flag');
     }
 
     checkGameState() {
