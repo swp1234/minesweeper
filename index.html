@@ -64,6 +64,69 @@
     }
     </script>
 
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Minesweeper?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Minesweeper is a classic logic puzzle game where you uncover cells on a grid while avoiding hidden mines. Numbers on revealed cells indicate how many adjacent mines surround them. Use logic to flag all mines and clear the board."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I play Minesweeper online?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Click or tap a cell to reveal it. If it shows a number, that many mines are adjacent. Right-click or long-press to flag a suspected mine. Use arrow keys to navigate and F to flag on desktop. Choose from Beginner (9x9), Intermediate (16x16), or Expert (30x16) difficulty."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this Minesweeper game free? Do I need to download it?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, this Minesweeper game is completely free to play online in your browser. No download or installation is needed. Simply open the page and start solving puzzles immediately."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the best Minesweeper strategies and tips?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Start by clicking near the center for a better opening. Look for patterns: if a 1 touches only one unrevealed cell, that cell is a mine. Use the hint button when stuck. Flag confirmed mines immediately to reduce confusion. Practice on Beginner mode first."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Minesweeper work on phones and tablets?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! This Minesweeper game is fully responsive and touch-optimized for mobile devices. Tap to reveal cells and long-press to place flags. It works on any modern smartphone or tablet browser."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "DopaBrain", "item": "https://dopabrain.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Games", "item": "https://dopabrain.com/portal/games/" },
+            { "@type": "ListItem", "position": 3, "name": "Minesweeper", "item": "https://dopabrain.com/minesweeper/" }
+        ]
+    }
+    </script>
+
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="icon-192.svg">
