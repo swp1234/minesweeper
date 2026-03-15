@@ -1017,57 +1017,67 @@ let game;
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        if (typeof i18n !== 'undefined') {
-            await i18n.loadTranslations(i18n.currentLang);
-            i18n.updateUI();
+        try {
+            if (typeof i18n !== 'undefined') {
+                await i18n.loadTranslations(i18n.currentLang);
+                i18n.updateUI();
+            }
+        } catch (e) {
+            console.warn('i18n init failed:', e);
+        }
+
+        game = new Minesweeper();
+
+        // Restore saved game if exists
+        game.loadGameState();
+
+        if (typeof DailyStreak !== 'undefined') DailyStreak.init({ gameId: 'minesweeper', bestScoreKey: 'minesweeper_wins', minTarget: 1 });
+        if (typeof GameAds !== 'undefined') GameAds.init();
+        if (typeof GameAchievements !== 'undefined') GameAchievements.init({
+            gameId: 'minesweeper',
+            defs: [
+                { id: 'wins_5', stat: 'totalWins', target: 5, icon: '⭐', name: 'Mine Finder' },
+                { id: 'wins_20', stat: 'totalWins', target: 20, icon: '🏆', name: 'Mine Master' },
+                { id: 'wins_50', stat: 'totalWins', target: 50, icon: '👑', name: 'Mine Legend' },
+                { id: 'games_10', stat: 'totalGames', target: 10, icon: '🎮', name: 'Regular Player' },
+                { id: 'best_60', stat: 'bestTime', target: 1, icon: '⚡', name: 'Speed Solver' },
+                { id: 'expert_win', stat: 'expertWins', target: 1, icon: '💎', name: 'Expert Clear' }
+            ]
+        });
+
+        // Hide app loader
+        const loader = document.getElementById('app-loader');
+        if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(() => loader.remove(), 300);
+        }
+
+        // Init audio on user interaction
+        document.addEventListener('click', () => {
+            try {
+                game.initAudio();
+            } catch (e) {
+                console.error('initAudio failed:', e);
+            }
+        }, { once: true });
+
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(err => {
+                console.warn('ServiceWorker registration failed:', err);
+            });
+        }
+
+        // GA4 event
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: 'Minesweeper Game',
+                page_location: window.location.href
+            });
         }
     } catch (e) {
-        console.warn('i18n init failed:', e);
-    }
-
-    game = new Minesweeper();
-
-    // Restore saved game if exists
-    game.loadGameState();
-
-    if (typeof DailyStreak !== 'undefined') DailyStreak.init({ gameId: 'minesweeper', bestScoreKey: 'minesweeper_wins', minTarget: 1 });
-    if (typeof GameAds !== 'undefined') GameAds.init();
-    if (typeof GameAchievements !== 'undefined') GameAchievements.init({
-        gameId: 'minesweeper',
-        defs: [
-            { id: 'wins_5', stat: 'totalWins', target: 5, icon: '⭐', name: 'Mine Finder' },
-            { id: 'wins_20', stat: 'totalWins', target: 20, icon: '🏆', name: 'Mine Master' },
-            { id: 'wins_50', stat: 'totalWins', target: 50, icon: '👑', name: 'Mine Legend' },
-            { id: 'games_10', stat: 'totalGames', target: 10, icon: '🎮', name: 'Regular Player' },
-            { id: 'best_60', stat: 'bestTime', target: 1, icon: '⚡', name: 'Speed Solver' },
-            { id: 'expert_win', stat: 'expertWins', target: 1, icon: '💎', name: 'Expert Clear' }
-        ]
-    });
-
-    // Hide app loader
-    const loader = document.getElementById('app-loader');
-    if (loader) {
-        loader.classList.add('hidden');
-        setTimeout(() => loader.remove(), 300);
-    }
-
-    // Init audio on user interaction
-    document.addEventListener('click', () => {
-        game.initAudio();
-    }, { once: true });
-
-    // Register service worker
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js').catch(err => {
-            console.warn('ServiceWorker registration failed:', err);
-        });
-    }
-
-    // GA4 event
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'page_view', {
-            page_title: 'Minesweeper Game',
-            page_location: window.location.href
-        });
+        console.error('Game initialization failed:', e);
+        const loader = document.getElementById('app-loader');
+        if (loader) loader.classList.add('hidden');
     }
 });
