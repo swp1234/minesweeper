@@ -3,14 +3,26 @@ class I18n {
         this.translations = {};
         this.supportedLanguages = ['ko', 'en', 'ja', 'zh', 'es', 'pt', 'id', 'tr', 'de', 'fr', 'hi', 'ru'];
         this.currentLang = this.detectLanguage();
+        document.documentElement.lang = this.currentLang;
     }
 
     detectLanguage() {
+        // URL language is an explicit user/navigation choice.
+        try {
+            const params = new URLSearchParams(window.location.search);
+            const urlLang = params.get('lang');
+            if (urlLang && this.supportedLanguages.includes(urlLang)) {
+                return urlLang;
+            }
+        } catch (e) {}
+
         // Check localStorage first
-        const savedLang = localStorage.getItem('language');
-        if (savedLang && this.supportedLanguages.includes(savedLang)) {
-            return savedLang;
-        }
+        try {
+            const savedLang = localStorage.getItem('language');
+            if (savedLang && this.supportedLanguages.includes(savedLang)) {
+                return savedLang;
+            }
+        } catch (e) {}
 
         // Check browser language
         const browserLang = navigator.language.split('-')[0];
@@ -64,12 +76,16 @@ class I18n {
         }
 
         this.currentLang = lang;
-        localStorage.setItem('language', lang);
+        document.documentElement.lang = lang;
+        try {
+            localStorage.setItem('language', lang);
+        } catch (e) {}
         await this.loadTranslations(lang);
         this.updateUI();
     }
 
     updateUI() {
+        document.documentElement.lang = this.currentLang;
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             const text = this.t(key);
