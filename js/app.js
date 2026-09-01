@@ -1,3 +1,18 @@
+const minesweeperTrackedStages = new Set();
+
+function trackMinesweeper(name, details = {}) {
+    const onceEvents = new Set(['minesweeper_view', 'minesweeper_start', 'minesweeper_complete']);
+    if (onceEvents.has(name) && minesweeperTrackedStages.has(name)) return;
+    if (onceEvents.has(name)) minesweeperTrackedStages.add(name);
+    if (typeof gtag !== 'function') return;
+    gtag('event', name, {
+        event_category: 'game',
+        content_language: (typeof i18n !== 'undefined' && i18n.currentLang) || document.documentElement.lang || 'en',
+        entry_source: window.__minesweeperEntrySource || 'direct',
+        ...details
+    });
+}
+
 // Theme toggle functionality
 const themeToggle = document.getElementById('theme-toggle');
 if (themeToggle) {
@@ -249,8 +264,6 @@ class Minesweeper {
         this.difficultyMenu.classList.add('hidden');
         this.gameInterface.classList.remove('hidden');
 
-        // Hide initial ad
-        document.querySelector('.ad-top').style.display = 'none';
     }
 
     createCell(row, col) {
@@ -361,6 +374,7 @@ class Minesweeper {
             this.startTimer();
             this.placeMines(row, col);
             this.firstClick = false;
+            trackMinesweeper('minesweeper_start');
         }
 
         // Reveal cell
@@ -559,6 +573,7 @@ class Minesweeper {
 
     endGame(won) {
         this.gameOver = true;
+        trackMinesweeper('minesweeper_complete');
         this.clearTimer();
         this.clearSavedState();
         const elapsedTime = Math.floor((Date.now() - this.startTime) / 1000);
@@ -642,12 +657,10 @@ class Minesweeper {
         if (typeof GameAds !== 'undefined') {
             GameAds.showInterstitial({ onComplete: () => {
                 this.gameOverModal.classList.remove('hidden');
-                document.querySelector('.ad-top').style.display = '';
                 this._injectRewardButton(won);
             } });
         } else {
             this.gameOverModal.classList.remove('hidden');
-            document.querySelector('.ad-top').style.display = '';
             this._injectRewardButton(won);
         }
     }
@@ -759,7 +772,6 @@ class Minesweeper {
             onReward: () => {
                 // Hide game-over modal and resume play
                 this.gameOverModal.classList.add('hidden');
-                document.querySelector('.ad-top').style.display = 'none';
                 this.gameOver = false;
 
                 // Undo the mine that was hit — find the revealed mine cell and un-reveal it
@@ -811,22 +823,22 @@ class Minesweeper {
         }
     }
 
-    shareScore() {
-        const time = this.finalTime.textContent;
-        const won = this.gameOverTitle.style.color === 'var(--success)';
-        const text = won
-            ? `I cleared Minesweeper in ${time}s! Can you beat me? \uD83D\uDCA3`
-            : `I played Minesweeper! Can you beat me? \uD83D\uDCA3`;
+    async shareScore() {
+        const text = i18n.t('app.title');
         const url = 'https://dopabrain.com/minesweeper/';
-        if (navigator.share) {
-            navigator.share({ title: 'Minesweeper', text, url }).catch(() => {});
-        } else {
-            navigator.clipboard.writeText(text + '\n' + url).then(() => {
-                const btn = document.getElementById('share-score-btn');
-                if (btn) { const orig = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = orig, 1500); }
-            }).catch(() => {});
+        const status = document.getElementById('share-status');
+        try {
+            const method = navigator.share ? 'native' : 'clipboard';
+            if (navigator.share) {
+                await navigator.share({ title: 'Minesweeper', text, url });
+            } else {
+                await navigator.clipboard.writeText(text + '\n' + url);
+            }
+            if (status) status.textContent = i18n.t('share.success');
+            trackMinesweeper('minesweeper_share', { method });
+        } catch (error) {
+            if (status && error && error.name !== 'AbortError') status.textContent = i18n.t('share.failed');
         }
-        if (typeof gtag === 'function') gtag('event', 'share', { method: navigator.share ? 'native' : 'clipboard', app_name: 'minesweeper' });
     }
 
     backToMenu() {
@@ -835,7 +847,6 @@ class Minesweeper {
         this.gameInterface.classList.add('hidden');
         this.difficultyMenu.classList.remove('hidden');
         this.gameOverModal.classList.add('hidden');
-        document.querySelector('.ad-top').style.display = '';
     }
 
     saveGameState() {
@@ -930,7 +941,6 @@ class Minesweeper {
             this.gameOverModal.classList.add('hidden');
             this.difficultyMenu.classList.add('hidden');
             this.gameInterface.classList.remove('hidden');
-            document.querySelector('.ad-top').style.display = 'none';
 
             return true;
         } catch (e) {
@@ -1027,6 +1037,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         game = new Minesweeper();
+        trackMinesweeper('minesweeper_view');
+
+        document.querySelectorAll('a[data-target-slug]').forEach(link => {
+            link.addEventListener('click', () => {
+                trackMinesweeper('minesweeper_related_click', {
+                    target_slug: link.getAttribute('data-target-slug')
+                });
+            });
+        });
 
         // Restore saved game if exists
         game.loadGameState();
@@ -1068,13 +1087,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-        // GA4 event
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'page_view', {
-                page_title: 'Minesweeper Game',
-                page_location: window.location.href
-            });
-        }
     } catch (e) {
         console.error('Game initialization failed:', e);
         const loader = document.getElementById('app-loader');

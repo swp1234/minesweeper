@@ -36,7 +36,9 @@
   },
   "share": {
     "twitter": "Twitter",
-    "copyUrl": "URL 복사"
+    "copyUrl": "URL 복사",
+    "success": "공유했습니다.",
+    "failed": "공유하지 못했습니다. 다시 시도해 주세요."
   },
   "nav": {
     "relatedArticles": "📖 관련 글",

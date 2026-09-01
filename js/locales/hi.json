@@ -36,7 +36,9 @@
   },
   "share": {
     "twitter": "Twitter",
-    "copyUrl": "URL कॉपी करें"
+    "copyUrl": "URL कॉपी करें",
+    "success": "सफलतापूर्वक साझा किया गया।",
+    "failed": "साझा नहीं हो सका। फिर कोशिश करें।"
   },
   "nav": {
     "relatedArticles": "📖 संबंधित लेख",

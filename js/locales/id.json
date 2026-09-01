@@ -36,7 +36,9 @@
   },
   "share": {
     "twitter": "Twitter",
-    "copyUrl": "Salin URL"
+    "copyUrl": "Salin URL",
+    "success": "Berhasil dibagikan.",
+    "failed": "Gagal membagikan. Coba lagi."
   },
   "nav": {
     "relatedArticles": "📖 Artikel terkait",

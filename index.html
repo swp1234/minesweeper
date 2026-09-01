@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+        (function () {
+            var allowedLanguages = new Set(['ko','en','ja','zh','es','pt','id','tr','de','fr','hi','ru']);
+            var allowedSources = new Set(['ja_minesweeper_guide']);
+            var url = new URL(window.location.href);
+            var lang = url.searchParams.get('lang');
+            var source = url.searchParams.get('source');
+            var clean = new URL(url.origin + url.pathname);
+            if (allowedLanguages.has(lang)) clean.searchParams.set('lang', lang);
+            if (allowedSources.has(source)) clean.searchParams.set('source', source);
+            if (clean.search !== url.search || url.hash) {
+                window.history.replaceState({}, '', clean.pathname + clean.search);
+            }
+            window.__minesweeperEntrySource = allowedSources.has(source) ? source : 'direct';
+        }());
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0f0f23">
     <meta name="description" content="Play Minesweeper free online — no download needed. Uncover safe cells, flag hidden mines, and test your logic across 3 difficulty levels. Play now!">
@@ -28,21 +44,6 @@
     <meta name="twitter:description" content="Find the hidden mines and test your logic skills!">
     <meta name="twitter:image" content="https://dopabrain.com/minesweeper/og-image.jpg">
 
-    <!-- hreflang for multilingual SEO -->
-    <link rel="alternate" hreflang="ko" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="en" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="zh" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="hi" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="ru" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="ja" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="es" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="pt" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="id" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="tr" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="de" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="fr" href="https://dopabrain.com/minesweeper/">
-    <link rel="alternate" hreflang="x-default" href="https://dopabrain.com/minesweeper/">
-
     <!-- Schema.org VideoGame -->
     <script type="application/ld+json">
     {
@@ -60,58 +61,7 @@
         "applicationCategory": "Game",
         "inLanguage": ["ko","en","zh","hi","ru","ja","es","pt","id","tr","de","fr"],
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.5", "ratingCount": "4200", "bestRating": "5", "worstRating": "1" },
         "featureList": "3 difficulty levels, best time leaderboard, keyboard controls, flag counter, achievements, 12 languages"
-    }
-    </script>
-
-    <!-- FAQPage Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "What is Minesweeper?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Minesweeper is a classic logic puzzle game where you uncover cells on a grid while avoiding hidden mines. Numbers on revealed cells indicate how many adjacent mines surround them. Use logic to flag all mines and clear the board."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How do I play Minesweeper online?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Click or tap a cell to reveal it. If it shows a number, that many mines are adjacent. Right-click or long-press to flag a suspected mine. Use arrow keys to navigate and F to flag on desktop. Choose from Beginner (9x9), Intermediate (16x16), or Expert (30x16) difficulty."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this Minesweeper game free? Do I need to download it?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, this Minesweeper game is completely free to play online in your browser. No download or installation is needed. Simply open the page and start solving puzzles immediately."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What are the best Minesweeper strategies and tips?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Start by clicking near the center for a better opening. Look for patterns: if a 1 touches only one unrevealed cell, that cell is a mine. Use the hint button when stuck. Flag confirmed mines immediately to reduce confusion. Practice on Beginner mode first."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Does Minesweeper work on phones and tablets?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes! This Minesweeper game is fully responsive and touch-optimized for mobile devices. Tap to reveal cells and long-press to place flags. It works on any modern smartphone or tablet browser."
-                }
-            }
-        ]
     }
     </script>
 
@@ -145,7 +95,6 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-J8GSWM40TV');
-        setTimeout(function(){gtag('event','page_engage',{event_category:'minesweeper',engagement_time_msec:5000})},5000);
     </script>
 
     <!-- AdSense -->
@@ -155,7 +104,7 @@
     <title data-i18n="app.title">Play Minesweeper Online Free - Classic Puzzle Game | DopaBrain</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-minesweeper-contract="2026-09-01">
     <a href="#main-content" class="skip-link" data-i18n="accessibility.skipToMain">Skip to main content</a>
     <div class="app-loader" id="app-loader"></div>
 
@@ -182,18 +131,6 @@
             <button class="lang-option" data-lang="hi">🇮🇳 हिन्दी</button>
             <button class="lang-option" data-lang="ru">🇷🇺 Русский</button>
         </div>
-    </div>
-
-    <!-- Top Banner Ad -->
-    <div class="ad-container ad-top">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-3600813755953882"
-             data-ad-slot="auto"
-             data-ad-format="horizontal"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
     </div>
 
     <div class="container" id="main-content">
@@ -295,34 +232,13 @@
                         <button id="share-score-btn" class="btn-secondary" data-i18n="game.shareScore">Share Score</button>
                         <button id="back-menu-btn" class="btn-secondary" data-i18n="result.backMenu">Back to Menu</button>
                     </div>
-
-                    <!-- Social Share Buttons -->
-                    <div class="share-section" id="share-section">
-                        <button class="share-btn share-twitter" id="shareTwitterBtn" aria-label="Share on Twitter">
-                            <span>𝕏</span> <span data-i18n="share.twitter">Twitter</span>
-                        </button>
-                        <button class="share-btn share-url" id="shareUrlBtn" aria-label="Copy URL">
-                            📋 <span data-i18n="share.copyUrl">Copy URL</span>
-                        </button>
-                    </div>
+                    <p id="share-status" role="status" aria-live="polite"></p>
                 </div>
             </div>
 
             <!-- Confetti Container -->
             <div id="confetti-container" class="confetti-container"></div>
         </div>
-    </div>
-
-    <!-- Bottom Banner Ad -->
-    <div class="ad-container ad-bottom">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-3600813755953882"
-             data-ad-slot="auto"
-             data-ad-format="horizontal"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
     </div>
 
     <script src="js/error-handler.js"></script>
@@ -332,43 +248,24 @@
     <script src="/portal/js/game-ads.js"></script>
     <script src="/portal/js/achievements.js"></script>
     <script src="js/app.js"></script>
-    <!-- Social Share Buttons CSS & JS -->
-    <style>
-        .share-section{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
-        .share-btn{min-height:44px;padding:10px 20px;border:none;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;font-family:inherit}
-        .share-btn:hover{transform:translateY(-1px)}
-        .share-twitter{background:#000;color:#fff}
-        .share-url{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.15)}
-        [data-theme="light"] .share-url{background:rgba(0,0,0,.05);color:#333;border-color:rgba(0,0,0,.1)}
-    </style>
-    <script>
-        document.getElementById('shareTwitterBtn')?.addEventListener('click',function(){var t=document.title+' '+window.location.href;window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(t),'_blank');if(typeof gtag!=='undefined')gtag('event','share',{method:'twitter'})});
-        document.getElementById('shareUrlBtn')?.addEventListener('click',function(){var b=this;navigator.clipboard.writeText(window.location.href).then(function(){b.textContent='✅ Copied!';setTimeout(function(){b.innerHTML='📋 Copy URL'},2000)});if(typeof gtag!=='undefined')gtag('event','share',{method:'url_copy'})});
-    </script>
     <!-- Related Articles & Portal Link -->
     <nav style="max-width:480px;margin:24px auto 0;padding:0 16px" aria-label="Related articles">
         <p style="font-size:13px;font-weight:600;margin-bottom:8px;opacity:0.6;text-align:center" data-i18n="nav.relatedArticles">📖 Related Articles</p>
         <div style="display:flex;flex-direction:column;gap:6px">
-            <a href="/portal/blog/en/minesweeper-strategy-guide.html" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">Minesweeper Strategy: Tips to Win Every Game</a>
-            <a href="/portal/blog/en/free-games.html" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">Best Free Browser Games 2026 - No Download</a>
-            <a href="/portal/blog/ko/minesweeper-strategy-guide.html" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">지뢰찾기 전략 가이드 - 승리하는 법</a>
+            <a href="/portal/blog/ja/minesweeper-strategy-guide.html" data-target-slug="ja_minesweeper_guide" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">マインスイーパー攻略：数字から安全マスを読む</a>
+            <a href="/portal/blog/en/minesweeper-strategy-guide.html" data-target-slug="en_minesweeper_guide" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">Minesweeper Strategy Guide</a>
+            <a href="/portal/blog/ko/minesweeper-strategy-guide.html" data-target-slug="ko_minesweeper_guide" style="display:block;padding:10px 14px;background:rgba(128,128,128,0.1);border-radius:8px;text-decoration:none;color:inherit;font-size:13px;opacity:0.7">지뢰찾기 전략 가이드</a>
         </div>
         <p style="text-align:center;margin-top:16px"><a href="https://dopabrain.com/portal/" style="opacity:0.5;font-size:13px;text-decoration:none;color:inherit">← DopaBrain Home</a></p>
     </nav>
     <div style="max-width:420px;margin:20px auto;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
       <h3 data-i18n="related.title" style="font-size:16px;color:#a0a0b8;margin-bottom:12px;text-align:center;">More to Explore</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-        <a href="/number-puzzle/" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-decoration:none;color:#fff;"><span style="font-size:28px;">🔢</span><span data-i18n="related.numberPuzzle" style="font-size:12px;font-weight:600;color:#a0a0b8;">Number Puzzle</span></a>
-        <a href="/puzzle-2048/" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-decoration:none;color:#fff;"><span style="font-size:28px;">🧩</span><span data-i18n="related.puzzle2048" style="font-size:12px;font-weight:600;color:#a0a0b8;">2048 Puzzle</span></a>
-        <a href="/memory-card/" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-decoration:none;color:#fff;"><span style="font-size:28px;">🃏</span><span data-i18n="related.memoryCard" style="font-size:12px;font-weight:600;color:#a0a0b8;">Memory Card</span></a>
-        <a href="/maze-runner/" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-decoration:none;color:#fff;"><span style="font-size:28px;">🌀</span><span data-i18n="related.mazeRunner" style="font-size:12px;font-weight:600;color:#a0a0b8;">Maze Runner</span></a>
+        <a href="/number-puzzle/" data-target-slug="number_puzzle" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-decoration:none;color:#fff;"><span style="font-size:28px;">🔢</span><span data-i18n="related.numberPuzzle" style="font-size:12px;font-weight:600;color:#a0a0b8;">Number Puzzle</span></a>
+        <a href="/puzzle-2048/" data-target-slug="puzzle_2048" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-decoration:none;color:#fff;"><span style="font-size:28px;">🧩</span><span data-i18n="related.puzzle2048" style="font-size:12px;font-weight:600;color:#a0a0b8;">2048 Puzzle</span></a>
+        <a href="/memory-card/" data-target-slug="memory_card" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-decoration:none;color:#fff;"><span style="font-size:28px;">🃏</span><span data-i18n="related.memoryCard" style="font-size:12px;font-weight:600;color:#a0a0b8;">Memory Card</span></a>
+        <a href="/maze-runner/" data-target-slug="maze_runner" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-decoration:none;color:#fff;"><span style="font-size:28px;">🌀</span><span data-i18n="related.mazeRunner" style="font-size:12px;font-weight:600;color:#a0a0b8;">Maze Runner</span></a>
       </div>
     </div>
-    <script src="/portal/js/cross-promo.js" defer></script>
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(() => {});
-}
-</script>
 </body>
 </html>

@@ -36,7 +36,9 @@
   },
   "share": {
     "twitter": "Twitter",
-    "copyUrl": "URL kopieren"
+    "copyUrl": "URL kopieren",
+    "success": "Erfolgreich geteilt.",
+    "failed": "Teilen fehlgeschlagen. Bitte erneut versuchen."
   },
   "nav": {
     "relatedArticles": "📖 Verwandte Artikel",

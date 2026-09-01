@@ -36,7 +36,9 @@
   },
   "share": {
     "twitter": "Twitter",
-    "copyUrl": "URLをコピー"
+    "copyUrl": "URLをコピー",
+    "success": "共有しました。",
+    "failed": "共有できませんでした。もう一度お試しください。"
   },
   "nav": {
     "relatedArticles": "📖 関連記事",

@@ -1,27 +1,27 @@
-const CACHE_NAME = 'minesweeper-v4';
+const CACHE_NAME = 'minesweeper-v5';
 const URLS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/assets/mine-opt.png',
-  '/assets/flag-opt.png',
-  '/js/app.js',
-  '/js/i18n.js',
-  '/js/locales/ko.json',
-  '/js/locales/en.json',
-  '/js/locales/ja.json',
-  '/js/locales/zh.json',
-  '/js/locales/es.json',
-  '/js/locales/pt.json',
-  '/js/locales/id.json',
-  '/js/locales/tr.json',
-  '/js/locales/de.json',
-  '/js/locales/fr.json',
-  '/js/locales/hi.json',
-  '/js/locales/ru.json',
-  '/manifest.json',
-  '/icon-192.svg',
-  '/icon-512.svg'
+  './',
+  './index.html',
+  './css/style.css',
+  './assets/mine-opt.png',
+  './assets/flag-opt.png',
+  './js/app.js',
+  './js/i18n.js',
+  './js/locales/ko.json',
+  './js/locales/en.json',
+  './js/locales/ja.json',
+  './js/locales/zh.json',
+  './js/locales/es.json',
+  './js/locales/pt.json',
+  './js/locales/id.json',
+  './js/locales/tr.json',
+  './js/locales/de.json',
+  './js/locales/fr.json',
+  './js/locales/hi.json',
+  './js/locales/ru.json',
+  './manifest.json',
+  './icon-192.svg',
+  './icon-512.svg'
 ];
 
 // Install event
@@ -62,6 +62,11 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   // Only handle GET requests
   if (event.request.method !== 'GET') {
+    return;
+  }
+
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.origin !== self.location.origin || !requestUrl.pathname.startsWith('/minesweeper/')) {
     return;
   }
 

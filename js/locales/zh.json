@@ -36,7 +36,9 @@
   },
   "share": {
     "twitter": "Twitter",
-    "copyUrl": "复制链接"
+    "copyUrl": "复制链接",
+    "success": "分享成功。",
+    "failed": "分享失败，请重试。"
   },
   "nav": {
     "relatedArticles": "📖 相关文章",
