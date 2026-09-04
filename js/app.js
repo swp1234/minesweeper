@@ -108,12 +108,10 @@ class Minesweeper {
         });
 
         this.playAgainBtn.addEventListener('click', () => {
-            if (typeof GameAds !== 'undefined') GameAds.removeRewardButton('#game-over-modal');
             this.startNewGame(this.currentDifficulty);
         });
 
         this.backMenuBtn.addEventListener('click', () => {
-            if (typeof GameAds !== 'undefined') GameAds.removeRewardButton('#game-over-modal');
             this.backToMenu();
         });
 
@@ -653,16 +651,7 @@ class Minesweeper {
         // Update leaderboard
         this.updateLeaderboard();
 
-        // Show game over modal (with interstitial ad)
-        if (typeof GameAds !== 'undefined') {
-            GameAds.showInterstitial({ onComplete: () => {
-                this.gameOverModal.classList.remove('hidden');
-                this._injectRewardButton(won);
-            } });
-        } else {
-            this.gameOverModal.classList.remove('hidden');
-            this._injectRewardButton(won);
-        }
+        this.gameOverModal.classList.remove('hidden');
     }
 
     updateLeaderboard() {
@@ -761,39 +750,6 @@ class Minesweeper {
             el.style.opacity = '0';
         });
         setTimeout(() => el.remove(), 900);
-    }
-
-    _injectRewardButton(won) {
-        // Only offer 2nd chance on loss
-        if (won || typeof GameAds === 'undefined') return;
-        GameAds.injectRewardButton({
-            container: '#game-over-modal',
-            label: 'Watch Ad for 2nd Chance',
-            onReward: () => {
-                // Hide game-over modal and resume play
-                this.gameOverModal.classList.add('hidden');
-                this.gameOver = false;
-
-                // Undo the mine that was hit — find the revealed mine cell and un-reveal it
-                for (let i = 0; i < this.rows; i++) {
-                    for (let j = 0; j < this.cols; j++) {
-                        if (this.board[i][j] === -2 && this.revealed[i][j]) {
-                            this.revealed[i][j] = false;
-                            this.revealedCount--;
-                            const cell = this.gameBoard.querySelector(`[data-row="${i}"][data-col="${j}"]`);
-                            if (cell) {
-                                cell.classList.remove('opened', 'mine', 'revealed');
-                                cell.textContent = '';
-                            }
-                        }
-                    }
-                }
-
-                // Restart timer
-                this.startTime = Date.now() - (parseInt(this.finalTime.textContent) * 1000);
-                this.startTimer();
-            }
-        });
     }
 
     _createSpriteImg(img) {
@@ -1051,7 +1007,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         game.loadGameState();
 
         if (typeof DailyStreak !== 'undefined') DailyStreak.init({ gameId: 'minesweeper', bestScoreKey: 'minesweeper_wins', minTarget: 1 });
-        if (typeof GameAds !== 'undefined') GameAds.init();
         if (typeof GameAchievements !== 'undefined') GameAchievements.init({
             gameId: 'minesweeper',
             defs: [
